@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name 百度百科美化
+// @namespace userElaina
 // @version 2022.10.15.1
 // @description 中国人就用百度百科
 // @author userElaina
