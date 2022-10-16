@@ -5,10 +5,10 @@
 // @description 中国人就用百度搜索
 // @author somereason
 // @license MIT
-// @match *://www.google.com/search*
-// @match *://www.google.com.*/search*
-// @match *://www.google.com/
-// @match *://www.google.com.*/
+// @match *.google.com/search*
+// @match *.google.com.*/search*
+// @match *.google.com/
+// @match *.google.com.*/
 // @grant none
 // ==/UserScript==
 

@@ -5,7 +5,7 @@
 // @description 中国人就用百度百科
 // @author userElaina
 // @license MIT
-// @match *://*.wikipedia.org/*/*
+// @match *.wikipedia.org/*
 // @grant none
 // ==/UserScript==
 
