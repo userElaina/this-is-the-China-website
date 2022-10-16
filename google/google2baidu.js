@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 百度搜索美化
 // @namespace win.somereason.web.utils
-// @version 2022.10.15.1
+// @version 2022.10.16.20
 // @description 中国人就用百度搜索
 // @author somereason
 // @license MIT
@@ -16,7 +16,7 @@
     var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
     link.type = 'image/x-icon';
     link.rel = 'shortcut icon';
-    link.href = 'https://www.baidu.com/favicon.ico';
+    link.href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu.ico';
     document.getElementsByTagName('head')[0].appendChild(link);
 
     if (window.location.href.indexOf("/search") > -1) {
@@ -38,17 +38,27 @@
             console.log("oops, pls wait for update");
         } else {
             var imgSize = getImgSize(logo);
-            logo.innerHTML = '<a href="/" data-hveid="7"><img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png" alt="Baidu" data-atf="3" height="' + imgSize.height + 'px" width="' + imgSize.width + 'px"></a>';
+            logo.innerHTML = '<a href="/" data-hveid="7"><img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png" alt="Baidu" data-atf="3" height="' + imgSize.height + 'px" width="' + imgSize.width + 'px"></a>';
 
-            document.title = document.title.replace(/\s-[\s\S]*/g, "_百度搜索");
+            document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度搜索");
         }
         document.querySelectorAll("a h3").forEach(a => a.style.color = "#0000cc");
         document.querySelectorAll("span.st").forEach(a => a.style.color = "#333333")
         document.querySelectorAll("em, .rbt b, .c b, .fl b").forEach(a => a.style.color = "#CC0000")
 
+        var Tg7LZd = document.getElementsByClassName('Tg7LZd')[0];
+        var height = Tg7LZd.clientHeight;
+        Tg7LZd.innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/search.png">';
+
+        var searchStyle=document.getElementsByClassName('RNNXgb')[0].style;
+        searchStyle.boxShadow="0 0 0 0";
+        searchStyle.border=0;
+        searchStyle.borderRadius=0;
+        searchStyle.background='#4e6ef21f';
+
         var navTabSpans = document.getElementsByClassName("SJajHc");
         for (var i = 0; i < navTabSpans.length; i++) {
-            var naviImageUrl = "https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/icons_5859e57.png";
+            var naviImageUrl = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/icons.png";
             navTabSpans[i].style.width = "22px";
             if (i === 0) {
                 navTabSpans[i].style.background = 'url("' + naviImageUrl + '") no-repeat 0px 0px';
@@ -62,7 +72,7 @@
         }
     } else {
         let bannerLogo = document.querySelector("[alt=Google]")
-        bannerLogo.src = "//www.baidu.com/img/bd_logo1.png";
+        bannerLogo.src = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/bd_logo1.png";
         bannerLogo.removeAttribute("srcset");
         bannerLogo.width = 270;
         bannerLogo.height = 129;
