@@ -8,6 +8,8 @@
 | - | --- | --- |
 |   | Google | Baidu |
 |   | Wikipedia | Baidu |
+|   | YouTube | Bilibili |
+|   | GitHub | Gitee |
 
 思路来自 [把google搜索伪装成百度搜索](https://greasyfork.org/zh-CN/scripts/372883-%E6%8A%8Agoogle%E6%90%9C%E7%B4%A2%E4%BC%AA%E8%A3%85%E6%88%90%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2).
 
