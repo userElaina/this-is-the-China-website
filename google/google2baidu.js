@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name 百度搜索美化
-// @namespace win.somereason.web.utils
+// @namespace userElaina
 // @version 2022.10.16.20
 // @description 中国人就用百度搜索
-// @author somereason
+// @author somereason userElaina
 // @license MIT
 // @match *.google.com/search*
 // @match *.google.com.*/search*
