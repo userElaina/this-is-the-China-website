@@ -15,5 +15,5 @@
     var bigLogo = document.querySelector('a.mw-wiki-logo');
     bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu_big.png" style="padding:10px;padding-top:40px;width:-webkit-fill-available;">';
     bigLogo.className = '';
-    document.getElementById("siteSub").innerText = '百度百科或许会倒闭, 但一定不会变质!'
+    document.getElementById("siteSub").innerText = '百度百科或许会倒闭, 但一定不会变质!';
 })();

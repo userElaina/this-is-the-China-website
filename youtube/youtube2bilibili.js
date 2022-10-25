@@ -25,7 +25,9 @@
 
     sleep(1000).then(() => {
         document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/youtube/bilibili.ico';
-        document.querySelector('div.ytp-play-progress.ytp-swatch-background-color').style.backgroundColor = '#00aeec';
+        document.querySelectorAll('div.ytp-play-progress.ytp-swatch-background-color').forEach(v => {
+            v.style.backgroundColor = '#00aeec';
+        });
         document.querySelector('div.ytp-scrubber-button.ytp-swatch-background-color').style.backgroundColor = '#00aeec';
 
         var subButton = document.querySelector('tp-yt-paper-button.style-scope.ytd-subscribe-button-renderer');
