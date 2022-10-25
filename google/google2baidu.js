@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 百度搜索美化
 // @namespace userElaina
-// @version 2022.10.16.20
+// @version 2022.10.24.1
 // @description 中国人就用百度搜索
 // @author somereason userElaina
 // @license MIT

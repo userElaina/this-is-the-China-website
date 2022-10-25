@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 码云美化
 // @namespace userElaina
-// @version 2022.10.16.20
+// @version 2022.10.24.1
 // @description 中国人就用码云
 // @author userElaina
 // @license MIT

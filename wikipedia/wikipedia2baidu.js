@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 百度百科美化
 // @namespace userElaina
-// @version 2022.10.16.20
+// @version 2022.10.24.1
 // @description 中国人就用百度百科
 // @author userElaina
 // @license MIT
