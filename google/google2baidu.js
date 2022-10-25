@@ -19,6 +19,12 @@
     link.href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu.ico';
     document.getElementsByTagName('head')[0].appendChild(link);
 
+    var searchStyle = document.getElementsByClassName('RNNXgb')[0].style;
+    searchStyle.boxShadow = "0 0 0 0";
+    searchStyle.border = 0;
+    searchStyle.borderRadius = 0;
+    searchStyle.background = '#4e6ef21f';
+
     if (window.location.href.indexOf("/search") > -1) {
         var logo = document.getElementById("logo");
         var logoArr;
@@ -50,28 +56,22 @@
         var height = Tg7LZd.clientHeight;
         Tg7LZd.innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/search.png">';
 
-        var searchStyle=document.getElementsByClassName('RNNXgb')[0].style;
-        searchStyle.boxShadow="0 0 0 0";
-        searchStyle.border=0;
-        searchStyle.borderRadius=0;
-        searchStyle.background='#4e6ef21f';
-
+        var naviImageUrl = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/icons.png";
         var navTabSpans = document.getElementsByClassName("SJajHc");
         for (var i = 0; i < navTabSpans.length; i++) {
-            var naviImageUrl = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/icons.png";
             navTabSpans[i].style.width = "22px";
             if (i === 0) {
                 navTabSpans[i].style.background = 'url("' + naviImageUrl + '") no-repeat 0px 0px';
             } else if (i == navTabSpans.length - 1) {
                 navTabSpans[i].style.background = 'url("' + naviImageUrl + '") no-repeat 0px 0px';
             } else if (navTabSpans[i].classList.contains("NVbCr")) {
-                navTabSpans[i].style.background = i % 2 == 1 ? 'url("' + naviImageUrl + '") no-repeat -144px -288px' : 'url("' + naviImageUrl + '") no-repeat -144px -282px'; //让页面底部的百度脚丫子错落有致,感谢Raka-loah 
+                navTabSpans[i].style.background = i % 2 == 1 ? 'url("' + naviImageUrl + '") no-repeat -144px -288px' : 'url("' + naviImageUrl + '") no-repeat -144px -282px';
             } else {
                 navTabSpans[i].style.background = 'url("' + naviImageUrl + '") no-repeat -96px -288px';
             }
         }
     } else {
-        let bannerLogo = document.querySelector("[alt=Google]")
+        let bannerLogo = document.querySelector("[alt=Google]");
         bannerLogo.src = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/bd_logo1.png";
         bannerLogo.removeAttribute("srcset");
         bannerLogo.width = 270;
@@ -80,20 +80,27 @@
         let paddingTopInt = parseInt(paddingTop);
         bannerLogo.style.paddingTop = (paddingTopInt - 20) + "px";
 
-        var searchBtns = document.getElementsByName("btnK");
-        for (var x = 0; x < searchBtns.length; x++) {
-            searchBtns[x].value = searchBtns[x].value.replace(/Google\s?/, "百度");
-        }
+        document.title = "百度一下, 你就知道";
+        document.querySelectorAll('a.gb_d').forEach(v => {
+            if (v.dataset.pid === '2') {
+                v.innerText = '百度邮箱';
+            } else if (v.dataset.pid === '23') {
+                v.innerHTML = '百度识图';
+            }
+        });
 
-        document.title = document.title.replace(/Google/g, "百度一下，你就知道");
+        document.getElementsByName("btnK").forEach(v => {
+            v.value = "百度搜索";
+        });
+
         var footnote = document.getElementById("SIvCob");
         if (footnote !== null) {
-            footnote.innerHTML = footnote.innerHTML.replace(/Google\s?/, "百度");
+            footnote.innerHTML = '百度提供: ' + footnote.innerHTML.slice(footnote.innerHTML.indexOf('<'));
         }
-        var footElements = document.getElementsByClassName("Fx4vi");
-        for (var u = 0; u < footElements.length; u++) {
-            footElements[u].innerHTML = footElements[u].innerHTML.replace(/Google\s?/, "百度");
-        }
+
+        // document.getElementsByClassName("Fx4vi").forEach(v =>{
+        //     v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
+        // });
     }
 
     function getImgSize(elLogo) {
