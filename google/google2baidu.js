@@ -83,9 +83,9 @@
         document.title = "百度一下, 你就知道";
         document.querySelectorAll('a.gb_d').forEach(v => {
             if (v.dataset.pid === '2') {
-                v.innerText = '百度邮箱';
+                v.innerText = '百度识图';
             } else if (v.dataset.pid === '23') {
-                v.innerHTML = '百度识图';
+                v.innerHTML = '百度邮箱';
             }
         });
 
