@@ -11,3 +11,7 @@ https://greasyfork.org/zh-CN/scripts/453226-google-%E4%BC%AA%E8%A3%85%E6%88%90-%
 ##### search
 
 ![search](./show2.png)
+
+##### page
+
+![page](./show3.png)
