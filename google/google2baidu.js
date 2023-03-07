@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name 百度搜索美化
 // @namespace userElaina
-// @version 2022.10.24.1
+// @version 2023.03.07.1
 // @description 中国人就用百度搜索
 // @author somereason userElaina
 // @license MIT
+// @match *.google.com
 // @match *.google.com/search*
-// @match *.google.com.*/search*
-// @match *.google.com/
-// @match *.google.com.*/
+// @match *.google.com.hk
+// @match *.google.com.hk/search*
 // @grant none
 // ==/UserScript==
 
@@ -81,7 +81,7 @@
         bannerLogo.style.paddingTop = (paddingTopInt - 20) + "px";
 
         document.title = "百度一下, 你就知道";
-        document.querySelectorAll('a.gb_d').forEach(v => {
+        document.querySelectorAll('a.gb_d, a.gb_p').forEach(v => {
             if (v.dataset.pid === '2') {
                 v.innerText = '百度识图';
             } else if (v.dataset.pid === '23') {
