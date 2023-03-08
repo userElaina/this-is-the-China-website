@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name 国际网站伪装为国内网站
+// @name 国际网站伪装为国内网站(汇总)
 // @namespace userElaina
-// @version 2023.03.08.1
+// @version 2023.03.08.3
 // @description 中国人就用中国网站
 // @author userElaina
 // @license MIT
@@ -12,6 +12,8 @@
 // @match *://*.youtube.com/*
 // @match *://*.wikipedia.org/*
 // @match *://*.github.com/*
+// @match *://*.steampowered.com/*
+// @match *://*.steamcommunity.com/*
 // @grant none
 // ==/UserScript==
 
@@ -205,16 +207,16 @@
         document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度百科");
         document.querySelector('input.vector-search-box-input').placeholder = '搜索百度百科';
         document.getElementById("siteSub").innerText = '百度百科, 全球领先的中文百科全书!';
-
-        var bigLogo = document.querySelector('a.mw-wiki-logo');
-        if (bigLogo != null) {
-            bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu_big.png" style="padding:10px;padding-top:40px;width:-webkit-fill-available;">';
-            bigLogo.className = '';
+    
+        var wk_bigLogo = document.querySelector('a.mw-wiki-logo');
+        if (wk_bigLogo != null) {
+            wk_bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu_big.png" style="padding:10px;padding-top:40px;width:-webkit-fill-available;">';
+            wk_bigLogo.className = '';
         }
-        bigLogo = document.querySelector('a.mw-logo');
-        if (bigLogo != null) {
-            bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu_big.png" style="padding:10px;padding-top:20px;width:-webkit-fill-available;">';
-            bigLogo.className = '';
+        wk_bigLogo = document.querySelector('a.mw-logo');
+        if (wk_bigLogo != null) {
+            wk_bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu_big.png" style="padding:10px;padding-top:20px;width:-webkit-fill-available;">';
+            wk_bigLogo.className = '';
         }
 
     } else if (document.domain.search('github') != -1) {
@@ -229,9 +231,19 @@
             document.title = '- ' + document.title;
         }
         document.title = 'Gitee ' + document.title;
-        var bigLogo = document.querySelector('a[class="Header-link"]');
-        var height = bigLogo.clientHeight;
-        bigLogo.innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/github/gitee_white.svg">';
+        var gh_bigLogo = document.querySelector('a[class="Header-link"]');
+        var gh_height = gh_bigLogo.clientHeight;
+        gh_bigLogo.innerHTML = '<img height=' + gh_height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/github/gitee_white.svg">';
+
+    } else if (document.domain.search('steam') != -1) {
+
+        document.title = document.title.replace(' Steam', 'Steam').replace('Steam ', 'Steam').replace('Steam', '蒸汽平台');
+        document.getElementById("logo_holder").childNodes[1].childNodes[1].src = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/steam/logo.svg';
+
+        var st_giftcard = document.getElementsByClassName('home_page_gutter_giftcard');
+        if (st_giftcard.length > 0) {
+            st_giftcard[0].height = 0;
+        }
 
     }
 })();

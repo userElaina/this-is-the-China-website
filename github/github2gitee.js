@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 码云美化
 // @namespace userElaina
-// @version 2023.03.08.1
+// @version 2023.03.08.3
 // @description 中国人就用码云
 // @author userElaina
 // @license MIT
@@ -20,8 +20,8 @@
         document.title = '- ' + document.title;
     }
     document.title = 'Gitee ' + document.title;
-    var bigLogo = document.querySelector('a[class="Header-link"]');
-    var height = bigLogo.clientHeight;
-    bigLogo.innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/github/gitee_white.svg">';
+    var gh_bigLogo = document.querySelector('a[class="Header-link"]');
+    var gh_height = gh_bigLogo.clientHeight;
+    gh_bigLogo.innerHTML = '<img height=' + gh_height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/github/gitee_white.svg">';
 
 })();
