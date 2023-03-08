@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name 哔哩哔哩美化
 // @namespace userElaina
-// @version 2023.03.07.1
+// @version 2023.03.08.1
 // @description 中国人就用哔哩哔哩
 // @author userElaina
 // @license MIT
-// @match *.youtube.com/*
+// @match *://*.youtube.com/*
 // @grant none
 // ==/UserScript==
 
@@ -27,7 +27,7 @@
         document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/youtube/bilibili.ico';
 
         var a = document.querySelector('div.yt-spec-icon-badge-shape__badge');
-        if(a != null){
+        if (a != null) {
             a.style.backgroundColor = '#00aeec';
         }
 

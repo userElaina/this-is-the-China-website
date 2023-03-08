@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name 百度搜索美化
 // @namespace userElaina
-// @version 2023.03.07.1
+// @version 2023.03.08.1
 // @description 中国人就用百度搜索
 // @author somereason userElaina
 // @license MIT
-// @match *.google.com
-// @match *.google.com/search*
-// @match *.google.com.hk
-// @match *.google.com.hk/search*
+// @match *://*.google.com
+// @match *://*.google.com/search*
+// @match *://*.google.com.hk
+// @match *://*.google.com.hk/search*
 // @grant none
 // ==/UserScript==
 
@@ -45,12 +45,17 @@
         } else {
             var imgSize = getImgSize(logo);
             logo.innerHTML = '<a href="/" data-hveid="7"><img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png" alt="Baidu" data-atf="3" height="' + imgSize.height + 'px" width="' + imgSize.width + 'px"></a>';
-
             document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度搜索");
         }
-        document.querySelectorAll("a h3").forEach(a => a.style.color = "#0000cc");
-        document.querySelectorAll("span.st").forEach(a => a.style.color = "#333333")
-        document.querySelectorAll("em, .rbt b, .c b, .fl b").forEach(a => a.style.color = "#CC0000")
+        document.querySelectorAll("a h3").forEach(a => {
+            a.style.color = "#0000cc";
+        });
+        document.querySelectorAll("span.st").forEach(a => {
+            a.style.color = "#333333";
+        });
+        document.querySelectorAll("em, .rbt b, .c b, .fl b").forEach(a => {
+            a.style.color = "#CC0000";
+        });
 
         var Tg7LZd = document.getElementsByClassName('Tg7LZd')[0];
         var height = Tg7LZd.clientHeight;
@@ -98,9 +103,11 @@
             footnote.innerHTML = '百度提供: ' + footnote.innerHTML.slice(footnote.innerHTML.indexOf('<'));
         }
 
-        // document.getElementsByClassName("Fx4vi").forEach(v =>{
-        //     v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
-        // });
+        /*
+        document.getElementsByClassName("Fx4vi").forEach(v =>{
+            v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
+        });
+        */
     }
 
     function getImgSize(elLogo) {
@@ -111,4 +118,5 @@
             return { height: elImg.height, width: elImg.width }
         }
     }
+
 })();
