@@ -13,7 +13,7 @@
     document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu.ico';
     document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度百科");
     document.querySelector('input.vector-search-box-input').placeholder = '搜索百度百科';
-    document.getElementById("siteSub").innerText = '百度百科或许会倒闭, 但一定不会变质!';
+    document.getElementById("siteSub").innerText = '百度百科, 全球领先的中文百科全书!';
 
     var bigLogo = document.querySelector('a.mw-wiki-logo');
     if (bigLogo != null) {
