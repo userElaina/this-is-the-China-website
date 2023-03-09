@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 国际网站伪装为国内网站(汇总)
 // @namespace userElaina
-// @version 2023.03.08.3
+// @version 2023.03.09.1
 // @description 中国人就用中国网站
 // @author userElaina
 // @license MIT
@@ -20,21 +20,26 @@
 (function () {
     if (document.domain.search('google') != -1) {
 
-        var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
         link.type = 'image/x-icon';
         link.rel = 'shortcut icon';
         link.href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu.ico';
         document.getElementsByTagName('head')[0].appendChild(link);
 
-        var searchStyle = document.getElementsByClassName('RNNXgb')[0].style;
-        searchStyle.boxShadow = "0 0 0 0";
-        searchStyle.border = 0;
-        searchStyle.borderRadius = 0;
-        searchStyle.background = '#4e6ef21f';
+        let searchList = document.getElementsByClassName('RNNXgb');
+        if (searchList.length > 0) {
+            let searchStyle = searchList[0].style;
+            searchStyle.boxShadow = "0 0 0 0";
+            searchStyle.border = 0;
+            searchStyle.borderRadius = 0;
+            searchStyle.background = '#4e6ef21f';
+        } else {
+            console.log("ERROR: change search style failed.");
+        }
 
         if (window.location.href.indexOf("/search") > -1) {
-            var logo = document.getElementById("logo");
-            var logoArr;
+            let logo = document.getElementById("logo");
+            let logoArr;
             if (logo === null) {
                 logoArr = document.getElementsByClassName("logo");
                 if (logoArr.length > 0) {
@@ -48,9 +53,9 @@
                 }
             }
             if (logo === null) {
-                console.log("oops, pls wait for update");
+                console.log("ERROR: change search logo failed.");
             } else {
-                var imgSize = getImgSize(logo);
+                let imgSize = getImgSize(logo);
                 logo.innerHTML = '<a href="/" data-hveid="7"><img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png" alt="Baidu" data-atf="3" height="' + imgSize.height + 'px" width="' + imgSize.width + 'px"></a>';
                 document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度搜索");
             }
@@ -64,13 +69,13 @@
                 a.style.color = "#CC0000";
             });
 
-            var Tg7LZd = document.getElementsByClassName('Tg7LZd')[0];
-            var height = Tg7LZd.clientHeight;
+            let Tg7LZd = document.getElementsByClassName('Tg7LZd')[0];
+            let height = Tg7LZd.clientHeight;
             Tg7LZd.innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/search.png">';
 
-            var naviImageUrl = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/icons.png";
-            var navTabSpans = document.getElementsByClassName("SJajHc");
-            for (var i = 0; i < navTabSpans.length; i++) {
+            let naviImageUrl = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/icons.png";
+            let navTabSpans = document.getElementsByClassName("SJajHc");
+            for (let i = 0; i < navTabSpans.length; i++) {
                 navTabSpans[i].style.width = "22px";
                 if (i === 0) {
                     navTabSpans[i].style.background = 'url("' + naviImageUrl + '") no-repeat 0px 0px';
@@ -84,16 +89,18 @@
             }
         } else {
             let bannerLogo = document.querySelector("[alt=Google]");
-            bannerLogo.src = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/bd_logo1.png";
-            bannerLogo.removeAttribute("srcset");
-            bannerLogo.width = 270;
-            bannerLogo.height = 129;
-            let paddingTop = bannerLogo.style.paddingTop.replace("px", "");
-            let paddingTopInt = parseInt(paddingTop);
-            bannerLogo.style.paddingTop = (paddingTopInt - 20) + "px";
+            if (bannerLogo !== null) {
+                bannerLogo.src = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/bd_logo1.png";
+                bannerLogo.removeAttribute("srcset");
+                bannerLogo.width = 270;
+                bannerLogo.height = 129;
+                let paddingTop = bannerLogo.style.paddingTop.replace("px", "");
+                let paddingTopInt = parseInt(paddingTop);
+                bannerLogo.style.paddingTop = (paddingTopInt - 20) + "px";
+            }
 
             document.title = "百度一下, 你就知道";
-            document.querySelectorAll('a.gb_d, a.gb_p').forEach(v => {
+            document.querySelectorAll('a.gb_d, a.gb_p, a.gb_q').forEach(v => {
                 if (v.dataset.pid === '2') {
                     v.innerText = '百度识图';
                 } else if (v.dataset.pid === '23') {
@@ -105,20 +112,14 @@
                 v.value = "百度搜索";
             });
 
-            var footnote = document.getElementById("SIvCob");
+            let footnote = document.getElementById("SIvCob");
             if (footnote !== null) {
                 footnote.innerHTML = '百度提供: ' + footnote.innerHTML.slice(footnote.innerHTML.indexOf('<'));
             }
-
-            /*
-            document.getElementsByClassName("Fx4vi").forEach(v =>{
-                v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
-            });
-            */
         }
 
         function getImgSize(elLogo) {
-            var elImg = elLogo.querySelector("img");
+            let elImg = elLogo.querySelector("img");
             if (elImg === null) {
                 return { height: 30, width: 92 }
             } else {
@@ -132,7 +133,7 @@
             return new Promise((resolve) => setTimeout(resolve, time));
         }
 
-        var spl = window.location.href.split('/');
+        let spl = window.location.href.split('/');
         if (spl.length < 4 || (spl.length == 4 && spl[3].length == 0)) {
             document.title = "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili";
         } else {
@@ -144,57 +145,25 @@
         sleep(1000).then(() => {
             document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/youtube/bilibili.ico';
 
-            var a = document.querySelector('div.yt-spec-icon-badge-shape__badge');
-            if (a != null) {
-                a.style.backgroundColor = '#00aeec';
+            let notice = document.querySelector('div.yt-spec-icon-badge-shape__badge');
+            if (notice != null) {
+                notice.style.backgroundColor = '#00aeec';
             }
 
-            /*
-            // for youtube old version
-            var subButton = document.querySelector('tp-yt-paper-button.style-scope.ytd-subscribe-button-renderer');
-            if (subButton.getAttribute('subscribed') === null) {
-                subButton.innerText = '关注';
-                subButton.style.color = '#ffffff';
-                subButton.style.backgroundColor = '#00aeec';
-            } else {
-                subButton.innerText = '已关注';
-                subButton.style.color = '#606060';
-                subButton.style.backgroundColor = '#e9e9e9';
-            }
-            */
-
-            var b_style = document.createElement("style");
-            document.head.appendChild(b_style);
-            var b_sheet = b_style.sheet;
-            var s0 = '';
-            var s1 = 'background-color: #00aeec';
+            let newStyle = document.createElement("style");
+            document.head.appendChild(newStyle);
+            let newSheet = newStyle.sheet;
+            let s0 = '';
+            let s1 = 'background-color: #00aeec';
 
             function changeColor(s0) {
-                b_sheet.addRule(s0, s1);
-                b_sheet.insertRule(s0 + ' { ' + s1 + ' }', 0);
+                newSheet.addRule(s0, s1);
+                newSheet.insertRule(s0 + ' { ' + s1 + ' }', 0);
             }
 
-            // button.ytp-button.ytp-settings-button.ytp-hd-quality-badge::after
             changeColor('.ytp-settings-button.ytp-hd-quality-badge:after, .ytp-settings-button.ytp-hdr-quality-badge:after, .ytp-settings-button.ytp-4k-quality-badge:after, .ytp-settings-button.ytp-5k-quality-badge:after, .ytp-settings-button.ytp-8k-quality-badge:after, .ytp-settings-button.ytp-3d-badge-grey:after, .ytp-settings-button.ytp-3d-badge:after');
-
-            // button.ytp-subtitles-button.ytp-button::after
             changeColor('.ytp-chrome-controls .ytp-button[aria-pressed]:after');
-
-            /*
-            document.querySelectorAll('div.ytp-play-progress.ytp-swatch-background-color').forEach(v => {
-                v.style.backgroundColor = '#00aeec';
-            });
-            document.querySelector('div.ytp-scrubber-button.ytp-swatch-background-color').style.backgroundColor = '#00aeec';
-            */
             changeColor('.ytp-swatch-background-color');
-
-            /*
-            setInterval(() => {
-                document.querySelectorAll('[id=progress]').forEach(v => {
-                    v.style.backgroundColor = '#00aeec';
-                });
-            }, 1000);
-            */
             changeColor('#progress.ytd-thumbnail-overlay-resume-playback-renderer');
 
         });
@@ -205,44 +174,68 @@
 
         document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu.ico';
         document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度百科");
-        document.querySelector('input.vector-search-box-input').placeholder = '搜索百度百科';
-        document.getElementById("siteSub").innerText = '百度百科, 全球领先的中文百科全书!';
-    
-        var wk_bigLogo = document.querySelector('a.mw-wiki-logo');
-        if (wk_bigLogo != null) {
-            wk_bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu_big.png" style="padding:10px;padding-top:40px;width:-webkit-fill-available;">';
-            wk_bigLogo.className = '';
+
+        let searchBox = document.querySelector('input.vector-search-box-input');
+        if (searchBox !== null) {
+            searchBox.placeholder = '搜索百度百科';
+        } else {
+            console.log("ERROR: change search box failed.");
         }
-        wk_bigLogo = document.querySelector('a.mw-logo');
-        if (wk_bigLogo != null) {
-            wk_bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu_big.png" style="padding:10px;padding-top:20px;width:-webkit-fill-available;">';
-            wk_bigLogo.className = '';
+
+        let siteSub = document.getElementById("siteSub");
+        if (siteSub !== null) {
+            siteSub.innerText = '百度百科, 全球领先的中文百科全书!';
+        } else {
+            console.log("ERROR: change site sub failed.");
+        }
+
+        let logo = document.querySelector('a.mw-wiki-logo');
+        if (logo !== null) {
+            logo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu_big.png" style="padding:10px;padding-top:40px;width:-webkit-fill-available;">';
+            logo.className = '';
+        }
+        logo = document.querySelector('a.mw-logo');
+        if (logo !== null) {
+            logo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/baidu_big.png" style="padding:10px;padding-top:20px;width:-webkit-fill-available;">';
+            logo.className = '';
         }
 
     } else if (document.domain.search('github') != -1) {
 
-        document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/github/gitee.ico';
+        let icon = document.querySelector('link[rel="icon"]');
+        if (icon !== null) {
+            icon.href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/github/gitee.ico';
+        } else {
+            console.log("ERROR: change icon failed.");
+        }
+
         if (document.title.startsWith('GitHub')) {
             document.title = document.title.slice(6);
-            if (document.title == '') {
+            if (document.title === '') {
                 document.title = '- 基于 Git 的代码托管和研发协作平台';
             }
         } else {
             document.title = '- ' + document.title;
         }
         document.title = 'Gitee ' + document.title;
-        var gh_bigLogo = document.querySelector('a[class="Header-link"]');
-        var gh_height = gh_bigLogo.clientHeight;
-        gh_bigLogo.innerHTML = '<img height=' + gh_height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/github/gitee_white.svg">';
+
+        let logo = document.querySelector('a[class="Header-link"]');
+        let height = logo.clientHeight;
+        logo.innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/github/gitee_white.svg">';
 
     } else if (document.domain.search('steam') != -1) {
 
         document.title = document.title.replace(' Steam', 'Steam').replace('Steam ', 'Steam').replace('Steam', '蒸汽平台');
-        document.getElementById("logo_holder").childNodes[1].childNodes[1].src = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/steam/logo.svg';
+        let logo = document.getElementById("logo_holder");
+        if (logo !== null) {
+            logo.childNodes[1].childNodes[1].src = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/steam/logo.svg';
+        } else {
+            console.log("ERROR: change logo failed.");
+        }
 
-        var st_giftcard = document.getElementsByClassName('home_page_gutter_giftcard');
-        if (st_giftcard.length > 0) {
-            st_giftcard[0].height = 0;
+        let giftcard = document.getElementsByClassName('home_page_gutter_giftcard');
+        if (giftcard.length > 0) {
+            giftcard[0].height = 0;
         }
 
     }

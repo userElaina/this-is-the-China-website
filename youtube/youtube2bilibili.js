@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 哔哩哔哩美化
 // @namespace userElaina
-// @version 2023.03.08.1
+// @version 2023.03.09.1
 // @description 中国人就用哔哩哔哩
 // @author userElaina
 // @license MIT
@@ -14,7 +14,7 @@
         return new Promise((resolve) => setTimeout(resolve, time));
     }
 
-    var spl = window.location.href.split('/');
+    let spl = window.location.href.split('/');
     if (spl.length < 4 || (spl.length == 4 && spl[3].length == 0)) {
         document.title = "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili";
     } else {
@@ -26,9 +26,9 @@
     sleep(1000).then(() => {
         document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/youtube/bilibili.ico';
 
-        var a = document.querySelector('div.yt-spec-icon-badge-shape__badge');
-        if (a != null) {
-            a.style.backgroundColor = '#00aeec';
+        let notice = document.querySelector('div.yt-spec-icon-badge-shape__badge');
+        if (notice != null) {
+            notice.style.backgroundColor = '#00aeec';
         }
 
         /*
@@ -45,15 +45,15 @@
         }
         */
 
-        var b_style = document.createElement("style");
-        document.head.appendChild(b_style);
-        var b_sheet = b_style.sheet;
-        var s0 = '';
-        var s1 = 'background-color: #00aeec';
+        let newStyle = document.createElement("style");
+        document.head.appendChild(newStyle);
+        let newSheet = newStyle.sheet;
+        let s0 = '';
+        let s1 = 'background-color: #00aeec';
 
         function changeColor(s0) {
-            b_sheet.addRule(s0, s1);
-            b_sheet.insertRule(s0 + ' { ' + s1 + ' }', 0);
+            newSheet.addRule(s0, s1);
+            newSheet.insertRule(s0 + ' { ' + s1 + ' }', 0);
         }
 
         // button.ytp-button.ytp-settings-button.ytp-hd-quality-badge::after
