@@ -6,13 +6,13 @@
 
 以下链接为 [Greasy Fork](https://greasyfork.org) 链接.
 
-|   | src | dst |
-| - | --- | --- |
-|   | Google | [百度](https://greasyfork.org/zh-CN/scripts/453226-google-%E4%BC%AA%E8%A3%85%E6%88%90-%E7%99%BE%E5%BA%A6), |
-|   | Wikipedia | [百度百科](https://greasyfork.org/zh-CN/scripts/453100-wikipedia-%E4%BC%AA%E8%A3%85%E6%88%90-%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91), |
-|   | YouTube | [哔哩哔哩](https://greasyfork.org/zh-CN/scripts/453225-youtube-%E4%BC%AA%E8%A3%85%E6%88%90-%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9), |
-|   | GitHub | [码云 (Gitee)](https://greasyfork.org/zh-CN/scripts/453224-github-%E4%BC%AA%E8%A3%85%E6%88%90-gitee-%E7%A0%81%E4%BA%91), |
-|   | Steam | [蒸汽平台](https://greasyfork.org/zh-CN/scripts/461435-steam-%E4%BC%AA%E8%A3%85%E6%88%90-%E8%92%B8%E6%B1%BD%E5%B9%B3%E5%8F%B0), |
+| src | dst |
+| --- | --- |
+| Google | [百度](https://greasyfork.org/zh-CN/scripts/453226-google-%E4%BC%AA%E8%A3%85%E6%88%90-%E7%99%BE%E5%BA%A6), |
+| Wikipedia | [百度百科](https://greasyfork.org/zh-CN/scripts/453100-wikipedia-%E4%BC%AA%E8%A3%85%E6%88%90-%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91), |
+| YouTube | [哔哩哔哩](https://greasyfork.org/zh-CN/scripts/453225-youtube-%E4%BC%AA%E8%A3%85%E6%88%90-%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9), |
+| GitHub | [码云 (Gitee)](https://greasyfork.org/zh-CN/scripts/453224-github-%E4%BC%AA%E8%A3%85%E6%88%90-gitee-%E7%A0%81%E4%BA%91), |
+| Steam | [蒸汽平台](https://greasyfork.org/zh-CN/scripts/461435-steam-%E4%BC%AA%E8%A3%85%E6%88%90-%E8%92%B8%E6%B1%BD%E5%B9%B3%E5%8F%B0), |
 
 另有汇总: 
 https://greasyfork.org/zh-CN/scripts/461427-%E5%9B%BD%E9%99%85%E7%BD%91%E7%AB%99%E4%BC%AA%E8%A3%85%E4%B8%BA%E5%9B%BD%E5%86%85%E7%BD%91%E7%AB%99
@@ -25,13 +25,13 @@ https://greasyfork.org/zh-CN/scripts/461427-%E5%9B%BD%E9%99%85%E7%BD%91%E7%AB%99
 
 ##### TODO
 
-|   | src | dst |
-| - | --- | --- |
-|   | Google | (野鸡搜索引擎), |
-|   | Twitter | 没想好, |
-|   | Facebook | 没想好, |
-|   | Quora | 知乎, |
-|   | Pixiv | 没想好, |
-|   | Pinterest | 没想好, |
-|   | Instagram | 小红书, |
-|   | Archive of Our Own | 乐乎 (Lofter), |
+| src | dst |
+| --- | --- |
+| Google | (野鸡搜索引擎), |
+| Twitter | 没想好, |
+| Facebook | 没想好, |
+| Quora | 知乎, |
+| Pixiv | 没想好, |
+| Pinterest | 没想好, |
+| Instagram | 小红书, |
+| Archive of Our Own | 乐乎 (Lofter), |
