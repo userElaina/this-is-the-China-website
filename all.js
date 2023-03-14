@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 国际网站伪装为国内网站(汇总)
 // @namespace userElaina
-// @version 2023.03.14.15
+// @version 2023.03.14.159
 // @description 中国人就用中国网站
 // @author userElaina
 // @license MIT
@@ -87,12 +87,11 @@
             if (logo === null) {
                 console.log("ERROR: change search logo failed.");
             } else {
-                let elImg = logo.querySelector("img");
-                if (elImg === null) {
-                    logo.childNodes[0].innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png" style="background:none" alt="百度图片" height="30" width="92" data-atf="1" data-frt="0"></img>';
+                let img = logo.querySelector("img");
+                if (img === null) {
+                    logo.childNodes[0].innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png" style="background:none" height="30" width="92" data-atf="1" data-frt="0"></img>';
                 } else {
-                    elImg.src = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png';
-                    elImg.alt = "百度一下"
+                    img.src = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png';
                 }
             }
 
