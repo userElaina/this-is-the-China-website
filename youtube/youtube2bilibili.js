@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 哔哩哔哩美化
 // @namespace userElaina
-// @version 2023.03.09.1
+// @version 2023.03.28.1
 // @description 中国人就用哔哩哔哩
 // @author userElaina
 // @license MIT
@@ -9,10 +9,19 @@
 // @grant none
 // ==/UserScript==
 
+function changeStyle(s0, s1) {
+    let newStyle = document.createElement("style");
+    document.head.appendChild(newStyle);
+    let newSheet = newStyle.sheet;
+    newSheet.addRule(s0, s1);
+    newSheet.insertRule(s0 + ' { ' + s1 + ' }', 0);
+}
+
+function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 (function () {
-    function sleep(time) {
-        return new Promise((resolve) => setTimeout(resolve, time));
-    }
 
     let spl = window.location.href.split('/');
     if (spl.length < 4 || (spl.length == 4 && spl[3].length == 0)) {
@@ -45,22 +54,15 @@
         }
         */
 
-        let newStyle = document.createElement("style");
-        document.head.appendChild(newStyle);
-        let newSheet = newStyle.sheet;
-        let s0 = '';
-        let s1 = 'background-color: #00aeec';
-
-        function changeColor(s0) {
-            newSheet.addRule(s0, s1);
-            newSheet.insertRule(s0 + ' { ' + s1 + ' }', 0);
+        function changeBgColor(s0) {
+            changeStyle(s0, 'background-color: #00aeec');
         }
 
         // button.ytp-button.ytp-settings-button.ytp-hd-quality-badge::after
-        changeColor('.ytp-settings-button.ytp-hd-quality-badge:after, .ytp-settings-button.ytp-hdr-quality-badge:after, .ytp-settings-button.ytp-4k-quality-badge:after, .ytp-settings-button.ytp-5k-quality-badge:after, .ytp-settings-button.ytp-8k-quality-badge:after, .ytp-settings-button.ytp-3d-badge-grey:after, .ytp-settings-button.ytp-3d-badge:after');
+        changeBgColor('.ytp-settings-button.ytp-hd-quality-badge:after, .ytp-settings-button.ytp-hdr-quality-badge:after, .ytp-settings-button.ytp-4k-quality-badge:after, .ytp-settings-button.ytp-5k-quality-badge:after, .ytp-settings-button.ytp-8k-quality-badge:after, .ytp-settings-button.ytp-3d-badge-grey:after, .ytp-settings-button.ytp-3d-badge:after');
 
         // button.ytp-subtitles-button.ytp-button::after
-        changeColor('.ytp-chrome-controls .ytp-button[aria-pressed]:after');
+        changeBgColor('.ytp-chrome-controls .ytp-button[aria-pressed]:after');
 
         /*
         document.querySelectorAll('div.ytp-play-progress.ytp-swatch-background-color').forEach(v => {
@@ -68,7 +70,7 @@
         });
         document.querySelector('div.ytp-scrubber-button.ytp-swatch-background-color').style.backgroundColor = '#00aeec';
         */
-        changeColor('.ytp-swatch-background-color');
+        changeBgColor('.ytp-swatch-background-color');
 
         /*
         setInterval(() => {
@@ -77,7 +79,7 @@
             });
         }, 1000);
         */
-        changeColor('#progress.ytd-thumbnail-overlay-resume-playback-renderer');
+        changeBgColor('#progress.ytd-thumbnail-overlay-resume-playback-renderer');
 
     });
 
