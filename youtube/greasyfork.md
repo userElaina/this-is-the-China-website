@@ -8,3 +8,4 @@ YouTube 伪装成 哔哩哔哩.
 
 ![2](https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/youtube/show2.png)
 
+![3](https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/youtube/show3.png)
