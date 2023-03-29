@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 国际网站伪装为国内网站(汇总)
 // @namespace userElaina
-// @version 2023.03.14.159
+// @version 2023.03.29.1
 // @description 中国人就用中国网站
 // @author userElaina
 // @license MIT
@@ -18,6 +18,49 @@
 // @match *://*.steamcommunity.com/*
 // @grant none
 // ==/UserScript==
+
+function getStyle(name) {
+    var styleSheets = document.styleSheets;
+    var styleSheetsLength = styleSheets.length;
+    for (var i = 0; i < styleSheetsLength; i++) {
+        if (styleSheets[i].rules) {
+            var classes = styleSheets[i].rules;
+        }
+        else {
+            try {
+                if (!styleSheets[i].cssRules) {
+                    continue;
+                }
+            }
+            //Note that SecurityError exception is specific to Firefox.
+            catch (e) {
+                if (e.name == 'SecurityError') {
+                    console.log("SecurityError. Cant readd: " + styleSheets[i].href);
+                    continue;
+                }
+            }
+            var classes = styleSheets[i].cssRules;
+        }
+        for (var x = 0; x < classes.length; x++) {
+            if (classes[x].selectorText == name) {
+                return classes[x]
+            }
+        }
+    }
+}
+
+function changeStyle(s0, s1) {
+    let newStyle = document.createElement("style");
+    document.head.appendChild(newStyle);
+    let newSheet = newStyle.sheet;
+    newSheet.addRule(s0, s1);
+    newSheet.insertRule(s0 + ' { ' + s1 + ' }', 0);
+}
+
+function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 
 (function () {
     if (document.domain.search('google') != -1) {
@@ -42,14 +85,14 @@
             console.log("ERROR: change search style failed.");
         }
 
-        function SearchButton() {
+        function SearchButton(s0) {
             let Tg7LZd = document.getElementsByClassName('Tg7LZd');
             if (Tg7LZd.length <= 0) {
                 Tg7LZd = document.getElementsByClassName('rCGXm');
             }
             if (Tg7LZd.length > 0) {
                 let height = Tg7LZd[0].clientHeight;
-                Tg7LZd[0].innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/search.png">';
+                Tg7LZd[0].innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/' + s0 + '.png">';
             } else {
                 console.log("ERROR: change search button failed.");
             }
@@ -95,8 +138,17 @@
                 }
             }
 
+            /*
+            // Do not change visited links to purple
+            let linkColor = getStyle('a').style.color;
+            getStyle('a:visited').style.color = linkColor;
+            document.querySelectorAll("span.cHaqb").forEach(a => {
+                a.style.color = linkColor;
+            });
+            */
+
             document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度搜索");
-            SearchButton();
+            SearchButton('search');
 
             let naviImageUrl = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/icons.png";
             let navTabSpans = document.getElementsByClassName("SJajHc");
@@ -112,11 +164,12 @@
                     navTabSpans[i].style.background = 'url("' + naviImageUrl + '") no-repeat -96px -288px';
                 }
             }
+
         } else if (window.location.href.indexOf("/imghp") > -1) {
 
             BigLogo('Google Images');
             document.title = "百度图片, 发现多彩世界";
-            SearchButton();
+            SearchButton('imghp');
 
             let T8VaVe = document.getElementsByClassName("T8VaVe");
             if (T8VaVe.length > 0) {
@@ -147,13 +200,10 @@
             if (footnote !== null) {
                 footnote.innerHTML = '百度提供: ' + footnote.innerHTML.slice(footnote.innerHTML.indexOf('<'));
             }
+
         }
 
     } else if (document.domain.search('youtube') != -1) {
-
-        function sleep(time) {
-            return new Promise((resolve) => setTimeout(resolve, time));
-        }
 
         let spl = window.location.href.split('/');
         if (spl.length < 4 || (spl.length == 4 && spl[3].length == 0)) {
@@ -172,21 +222,14 @@
                 notice.style.backgroundColor = '#00aeec';
             }
 
-            let newStyle = document.createElement("style");
-            document.head.appendChild(newStyle);
-            let newSheet = newStyle.sheet;
-            let s0 = '';
-            let s1 = 'background-color: #00aeec';
-
-            function changeColor(s0) {
-                newSheet.addRule(s0, s1);
-                newSheet.insertRule(s0 + ' { ' + s1 + ' }', 0);
+            function changeBgColor(s0) {
+                changeStyle(s0, 'background-color: #00aeec');
             }
 
-            changeColor('.ytp-settings-button.ytp-hd-quality-badge:after, .ytp-settings-button.ytp-hdr-quality-badge:after, .ytp-settings-button.ytp-4k-quality-badge:after, .ytp-settings-button.ytp-5k-quality-badge:after, .ytp-settings-button.ytp-8k-quality-badge:after, .ytp-settings-button.ytp-3d-badge-grey:after, .ytp-settings-button.ytp-3d-badge:after');
-            changeColor('.ytp-chrome-controls .ytp-button[aria-pressed]:after');
-            changeColor('.ytp-swatch-background-color');
-            changeColor('#progress.ytd-thumbnail-overlay-resume-playback-renderer');
+            changeBgColor('.ytp-settings-button.ytp-hd-quality-badge:after, .ytp-settings-button.ytp-hdr-quality-badge:after, .ytp-settings-button.ytp-4k-quality-badge:after, .ytp-settings-button.ytp-5k-quality-badge:after, .ytp-settings-button.ytp-8k-quality-badge:after, .ytp-settings-button.ytp-3d-badge-grey:after, .ytp-settings-button.ytp-3d-badge:after');
+            changeBgColor('.ytp-chrome-controls .ytp-button[aria-pressed]:after');
+            changeBgColor('.ytp-swatch-background-color');
+            changeBgColor('#progress.ytd-thumbnail-overlay-resume-playback-renderer');
 
         });
 

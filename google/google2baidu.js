@@ -14,7 +14,7 @@
 // @grant none
 // ==/UserScript==
 
-function GetStyle(name) {
+function getStyle(name) {
     var styleSheets = document.styleSheets;
     var styleSheetsLength = styleSheets.length;
     for (var i = 0; i < styleSheetsLength; i++) {
@@ -120,8 +120,8 @@ function GetStyle(name) {
 
         /*
         // Do not change visited links to purple
-        let linkColor = GetStyle('a').style.color;
-        GetStyle('a:visited').style.color = linkColor;
+        let linkColor = getStyle('a').style.color;
+        getStyle('a:visited').style.color = linkColor;
         document.querySelectorAll("span.cHaqb").forEach(a => {
             a.style.color = linkColor;
         });
