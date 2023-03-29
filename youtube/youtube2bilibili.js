@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 哔哩哔哩美化
 // @namespace userElaina
-// @version 2023.03.28.1
+// @version 2023.03.29.1
 // @description 中国人就用哔哩哔哩
 // @author userElaina
 // @license MIT
@@ -35,11 +35,6 @@ function sleep(time) {
     sleep(1000).then(() => {
         document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/youtube/bilibili.ico';
 
-        let notice = document.querySelector('div.yt-spec-icon-badge-shape__badge');
-        if (notice != null) {
-            notice.style.backgroundColor = '#00aeec';
-        }
-
         /*
         // for youtube old version
         var subButton = document.querySelector('tp-yt-paper-button.style-scope.ytd-subscribe-button-renderer');
@@ -63,6 +58,14 @@ function sleep(time) {
 
         // button.ytp-subtitles-button.ytp-button::after
         changeBgColor('.ytp-chrome-controls .ytp-button[aria-pressed]:after');
+
+        /*
+        let notice = document.querySelector('div.yt-spec-icon-badge-shape__badge');
+        if (notice != null) {
+            notice.style.backgroundColor = '#00aeec';
+        }
+        */
+        changeBgColor('.yt-spec-icon-badge-shape--type-notification .yt-spec-icon-badge-shape__badge');
 
         /*
         document.querySelectorAll('div.ytp-play-progress.ytp-swatch-background-color').forEach(v => {
