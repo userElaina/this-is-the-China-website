@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 百度搜索美化
 // @namespace userElaina
-// @version 2023.03.14.159
+// @version 2023.03.29.1
 // @description 中国人就用百度搜索
 // @author somereason userElaina
 // @license MIT
@@ -13,6 +13,36 @@
 // @match *://*.google.com.hk/imghp*
 // @grant none
 // ==/UserScript==
+
+function GetStyle(name) {
+    var styleSheets = document.styleSheets;
+    var styleSheetsLength = styleSheets.length;
+    for (var i = 0; i < styleSheetsLength; i++) {
+        if (styleSheets[i].rules) {
+            var classes = styleSheets[i].rules;
+        }
+        else {
+            try {
+                if (!styleSheets[i].cssRules) {
+                    continue;
+                }
+            }
+            //Note that SecurityError exception is specific to Firefox.
+            catch (e) {
+                if (e.name == 'SecurityError') {
+                    console.log("SecurityError. Cant readd: " + styleSheets[i].href);
+                    continue;
+                }
+            }
+            var classes = styleSheets[i].cssRules;
+        }
+        for (var x = 0; x < classes.length; x++) {
+            if (classes[x].selectorText == name) {
+                return classes[x]
+            }
+        }
+    }
+}
 
 (function () {
     let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
@@ -35,14 +65,14 @@
         console.log("ERROR: change search style failed.");
     }
 
-    function SearchButton() {
+    function SearchButton(s0) {
         let Tg7LZd = document.getElementsByClassName('Tg7LZd');
         if (Tg7LZd.length <= 0) {
             Tg7LZd = document.getElementsByClassName('rCGXm');
         }
         if (Tg7LZd.length > 0) {
             let height = Tg7LZd[0].clientHeight;
-            Tg7LZd[0].innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/search.png">';
+            Tg7LZd[0].innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/' + s0 + '.png">';
         } else {
             console.log("ERROR: change search button failed.");
         }
@@ -89,19 +119,16 @@
         }
 
         /*
-        document.querySelectorAll("a h3").forEach(a => {
-            a.style.color = "#0000cc";
-        });
-        document.querySelectorAll("span.st").forEach(a => {
-            a.style.color = "#333333";
-        });
-        document.querySelectorAll("em, .rbt b, .c b, .fl b").forEach(a => {
-            a.style.color = "#CC0000";
+        // Do not change visited links to purple
+        let linkColor = GetStyle('a').style.color;
+        GetStyle('a:visited').style.color = linkColor;
+        document.querySelectorAll("span.cHaqb").forEach(a => {
+            a.style.color = linkColor;
         });
         */
 
         document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度搜索");
-        SearchButton();
+        SearchButton('search');
 
         let naviImageUrl = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/icons.png";
         let navTabSpans = document.getElementsByClassName("SJajHc");
@@ -117,11 +144,19 @@
                 navTabSpans[i].style.background = 'url("' + naviImageUrl + '") no-repeat -96px -288px';
             }
         }
+
+        /*
+        // Help Send feedback Privacy Terms
+        document.getElementsByClassName("Fx4vi").forEach(v =>{
+            v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
+        });
+        */
+
     } else if (window.location.href.indexOf("/imghp") > -1) {
 
         BigLogo('Google Images');
         document.title = "百度图片, 发现多彩世界";
-        SearchButton();
+        SearchButton('imghp');
 
         let T8VaVe = document.getElementsByClassName("T8VaVe");
         if (T8VaVe.length > 0) {
@@ -153,11 +188,6 @@
             footnote.innerHTML = '百度提供: ' + footnote.innerHTML.slice(footnote.innerHTML.indexOf('<'));
         }
 
-        /*
-        document.getElementsByClassName("Fx4vi").forEach(v =>{
-            v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
-        });
-        */
     }
 
 })();
