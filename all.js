@@ -217,17 +217,13 @@ function sleep(time) {
         sleep(1000).then(() => {
             document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/youtube/bilibili.ico';
 
-            let notice = document.querySelector('div.yt-spec-icon-badge-shape__badge');
-            if (notice != null) {
-                notice.style.backgroundColor = '#00aeec';
-            }
-
             function changeBgColor(s0) {
                 changeStyle(s0, 'background-color: #00aeec');
             }
 
             changeBgColor('.ytp-settings-button.ytp-hd-quality-badge:after, .ytp-settings-button.ytp-hdr-quality-badge:after, .ytp-settings-button.ytp-4k-quality-badge:after, .ytp-settings-button.ytp-5k-quality-badge:after, .ytp-settings-button.ytp-8k-quality-badge:after, .ytp-settings-button.ytp-3d-badge-grey:after, .ytp-settings-button.ytp-3d-badge:after');
             changeBgColor('.ytp-chrome-controls .ytp-button[aria-pressed]:after');
+            changeBgColor('.yt-spec-icon-badge-shape--type-notification .yt-spec-icon-badge-shape__badge');
             changeBgColor('.ytp-swatch-background-color');
             changeBgColor('#progress.ytd-thumbnail-overlay-resume-playback-renderer');
 
