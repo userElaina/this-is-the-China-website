@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 百度搜索美化
 // @namespace userElaina
-// @version 2023.03.29.1
+// @version 2023.04.01.1
 // @description 中国人就用百度搜索
 // @author somereason userElaina
 // @license MIT
@@ -11,6 +11,9 @@
 // @match *://*.google.com.hk/
 // @match *://*.google.com.hk/search*
 // @match *://*.google.com.hk/imghp*
+// @match *://*.google.co.jp/
+// @match *://*.google.co.jp/search*
+// @match *://*.google.co.jp/imghp*
 // @grant none
 // ==/UserScript==
 

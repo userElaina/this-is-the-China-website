@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 国际网站伪装为国内网站(汇总)
 // @namespace userElaina
-// @version 2023.03.29.1
+// @version 2023.04.01.1
 // @description 中国人就用中国网站
 // @author userElaina
 // @license MIT
@@ -11,6 +11,9 @@
 // @match *://*.google.com.hk/
 // @match *://*.google.com.hk/search*
 // @match *://*.google.com.hk/imghp*
+// @match *://*.google.co.jp/
+// @match *://*.google.co.jp/search*
+// @match *://*.google.co.jp/imghp*
 // @match *://*.youtube.com/*
 // @match *://*.wikipedia.org/*
 // @match *://*.github.com/*
