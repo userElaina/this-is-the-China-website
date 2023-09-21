@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 百度搜索美化
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2023.04.01.1
+// @version 2023.09.22.01
 // @description 中国人就用百度搜索
 // @author somereason userElaina
 // @license MIT
@@ -17,33 +17,21 @@
 // @grant none
 // ==/UserScript==
 
-function getStyle(name) {
-    var styleSheets = document.styleSheets;
-    var styleSheetsLength = styleSheets.length;
-    for (var i = 0; i < styleSheetsLength; i++) {
-        if (styleSheets[i].rules) {
-            var classes = styleSheets[i].rules;
+function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+async function f_succ(f, msSleep = 500, maxCount = 10) {
+    let count = 0;
+    while (true) {
+        if (f()) {
+            return true;
         }
-        else {
-            try {
-                if (!styleSheets[i].cssRules) {
-                    continue;
-                }
-            }
-            //Note that SecurityError exception is specific to Firefox.
-            catch (e) {
-                if (e.name == 'SecurityError') {
-                    console.log("SecurityError. Cant readd: " + styleSheets[i].href);
-                    continue;
-                }
-            }
-            var classes = styleSheets[i].cssRules;
+        count++;
+        if (count > maxCount) {
+            return false;
         }
-        for (var x = 0; x < classes.length; x++) {
-            if (classes[x].selectorText == name) {
-                return classes[x]
-            }
-        }
+        await sleep(msSleep);
     }
 }
 
@@ -120,15 +108,6 @@ function getStyle(name) {
                 img.src = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png';
             }
         }
-
-        /*
-        // Do not change visited links to purple
-        let linkColor = getStyle('a').style.color;
-        getStyle('a:visited').style.color = linkColor;
-        document.querySelectorAll("span.cHaqb").forEach(a => {
-            a.style.color = linkColor;
-        });
-        */
 
         document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度搜索");
         SearchButton('search');
