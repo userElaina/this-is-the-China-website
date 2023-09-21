@@ -1,4 +1,4 @@
-#### Github 伪装为 码云 (Gitee)
+#### Github 伪装成 码云 (Gitee)
 
 ##### Greasy Fork
 

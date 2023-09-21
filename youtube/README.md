@@ -1,4 +1,4 @@
-#### YouTube 伪装为 哔哩哔哩
+#### YouTube 伪装成 哔哩哔哩
 
 ##### Greasy Fork
 

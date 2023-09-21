@@ -1,4 +1,4 @@
-#### Steam 伪装为 蒸汽平台
+#### Steam 伪装成 蒸汽平台
 
 ##### Greasy Fork
 

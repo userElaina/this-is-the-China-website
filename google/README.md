@@ -1,4 +1,4 @@
-#### Google 伪装为 百度
+#### Google 伪装成 百度
 
 ##### Greasy Fork
 

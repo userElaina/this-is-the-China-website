@@ -1,4 +1,4 @@
-#### Wikipedia 伪装为 百度百科
+#### Wikipedia 伪装成 百度百科
 
 ##### Greasy Fork
 
