@@ -124,6 +124,8 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         */
         changeBgColor('#progress.ytd-thumbnail-overlay-resume-playback-renderer');
 
+        // Settings - Annotations
+        changeBgColor('.ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox');
     });
 
 })();
