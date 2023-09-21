@@ -26,7 +26,7 @@ https://greasyfork.org/zh-CN/scripts/461427-%E5%9B%BD%E9%99%85%E7%BD%91%E7%AB%99
 
 ##### TODO
 
-野鸡搜索引擎; GitHub 简易适配不同主题; Gitee 主题模仿.
+原创野鸡搜索引擎; Gitee 主题模仿.
 
 | src | dst |
 | --- | --- |
