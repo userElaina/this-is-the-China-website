@@ -1,4 +1,4 @@
-将国际网站伪装成中国网站.
+国际网站 伪装成 国内网站(汇总).
 
 这样你就可以在(半)公共区域使用国际网站, 而不会被萌新在微信 / QQ 上问, "哇! 为什么你可以使用 Google / YouTube / ...? 浇浇我!"
 
@@ -11,7 +11,7 @@
 | Steam | 蒸汽平台 |
 | Twitter (X) | 微博 |
 
-建议自行将 `@name` 修改为"网页美化"等类似标题.
+建议自行将 `@name` 修改为"网页美化", "超级下载器"等类似标题.
 
 [GitHub](https://github.com/userElaina/this-is-the-China-website)
 
