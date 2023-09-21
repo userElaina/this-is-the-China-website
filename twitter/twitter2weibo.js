@@ -35,7 +35,7 @@ function sleep(time) {
 
 
     let t = document.title;
-    t = t.replace(/[\xA0\u1680\u180e\u2000-\u200a\u202f\u205f\u3000]/g, ' ');
+    t = t.replace(/[\xA0\u1680\u180e\u2000\u200a\u202f\u205f\u3000]/g, ' ');
     t = t.replace(/\(\d\)/g, '').trim();
 
     while (1) {
@@ -45,7 +45,7 @@ function sleep(time) {
             }
             await sleep(500);
             t = document.title;
-            // t = t.replace(/[\xA0\u1680\u180e\u2000-\u200a\u202f\u205f\u3000]/g, ' ');
+            t = t.replace(/[\xA0\u1680\u180e\u2000\u200a\u202f\u205f\u3000]/g, ' ');
             t = t.replace(/\(\d\)/g, '').trim();
         }
         t = '微博-' + t.substring(0, t.length - 4);
