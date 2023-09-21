@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 百度搜索美化
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2023.09.22.01
+// @version 2023.09.22.02
 // @description 中国人就用百度搜索
 // @author somereason userElaina
 // @license MIT
@@ -35,43 +35,54 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
     }
 }
 
-(function () {
+(async function () {
+    // change icon
     let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
     link.type = 'image/x-icon';
     link.rel = 'shortcut icon';
     link.href = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu.ico';
     document.getElementsByTagName('head')[0].appendChild(link);
 
-    let RNNXgb = document.getElementsByClassName('RNNXgb');
-    if (RNNXgb.length <= 0) {
-        RNNXgb = document.getElementsByClassName('o6juZc');
-    }
-    if (RNNXgb.length > 0) {
+    // change search style
+    f_succ(() => {
+        let RNNXgb = document.getElementsByClassName('RNNXgb');
+        if (RNNXgb.length <= 0) {
+            RNNXgb = document.getElementsByClassName('o6juZc');
+        }
+        if (RNNXgb.length <= 0) {
+            return false;
+        }
         let searchStyle = RNNXgb[0].style;
         searchStyle.boxShadow = "0 0 0 0";
         searchStyle.border = 0;
         searchStyle.borderRadius = 0;
         searchStyle.background = '#4e6ef21f';
-    } else {
-        console.log("ERROR: change search style failed.");
-    }
+        return true;
+    });
 
-    function SearchButton(s0) {
-        let Tg7LZd = document.getElementsByClassName('Tg7LZd');
-        if (Tg7LZd.length <= 0) {
-            Tg7LZd = document.getElementsByClassName('rCGXm');
-        }
-        if (Tg7LZd.length > 0) {
+    // func: change search button
+    async function SearchButton(s0) {
+        await f_succ(() => {
+            let Tg7LZd = document.getElementsByClassName('Tg7LZd');
+            if (Tg7LZd.length <= 0) {
+                Tg7LZd = document.getElementsByClassName('rCGXm');
+            }
+            if (Tg7LZd.length <= 0) {
+                return false;
+            }
             let height = Tg7LZd[0].clientHeight;
             Tg7LZd[0].innerHTML = '<img height=' + height + ' src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/' + s0 + '.png">';
-        } else {
-            console.log("ERROR: change search button failed.");
-        }
+            return true;
+        });
     }
 
-    function BigLogo(str) {
-        let bannerLogo = document.querySelector("[alt='" + str + "']");
-        if (bannerLogo !== null) {
+    // func: change big logo
+    async function BigLogo(str) {
+        await f_succ(() => {
+            let bannerLogo = document.querySelector("[alt='" + str + "']");
+            if (bannerLogo === null) {
+                return false;
+            }
             bannerLogo.src = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/bd_logo1.png";
             bannerLogo.removeAttribute("srcset");
             bannerLogo.width = 270;
@@ -79,35 +90,41 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             let paddingTop = bannerLogo.style.paddingTop.replace("px", "");
             let paddingTopInt = parseInt(paddingTop);
             bannerLogo.style.paddingTop = (paddingTopInt - 20) + "px";
-        }
+            return true;
+        });
     }
 
     if (window.location.href.indexOf("/search") > -1) {
-
-        let logo = document.getElementById("logo");
-        let logoArr;
-        if (logo === null) {
-            logoArr = document.getElementsByClassName("logo");
-            if (logoArr.length <= 0) {
-                logoArr = document.getElementsByClassName("logocont");
+        // change search logo
+        f_succ(() => {
+            let logo = document.getElementById("logo");
+            let logoArr;
+            if (logo === null) {
+                logoArr = document.getElementsByClassName("logo");
                 if (logoArr.length <= 0) {
-                    logoArr = document.getElementsByClassName("qlS7ne");
+                    logoArr = document.getElementsByClassName("logocont");
+                    if (logoArr.length <= 0) {
+                        logoArr = document.getElementsByClassName("qlS7ne");
+                    }
+                }
+                if (logoArr.length > 0) {
+                    logo = logoArr[0];
                 }
             }
-            if (logoArr.length > 0) {
-                logo = logoArr[0];
+            if (logo === null) {
+                return false;
             }
-        }
-        if (logo === null) {
-            console.log("ERROR: change search logo failed.");
-        } else {
             let img = logo.querySelector("img");
             if (img === null) {
+                if (logo.childElementCount <= 0) {
+                    return false;
+                }
                 logo.childNodes[0].innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png" style="background:none" height="30" width="92" data-atf="1" data-frt="0"></img>';
             } else {
                 img.src = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png';
             }
-        }
+            return true;
+        });
 
         document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度搜索");
         SearchButton('search');
@@ -139,11 +156,14 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         BigLogo('Google Images');
         document.title = "百度图片, 发现多彩世界";
         SearchButton('imghp');
-
-        let T8VaVe = document.getElementsByClassName("T8VaVe");
-        if (T8VaVe.length > 0) {
+        f_succ(() => {
+            let T8VaVe = document.getElementsByClassName("T8VaVe");
+            if (T8VaVe.length <= 0) {
+                return false;
+            }
             T8VaVe[0].innerHTML = '';
-        }
+            return true;
+        });
 
     } else {
 
@@ -161,14 +181,26 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             }
         });
 
-        document.getElementsByName("btnK").forEach(v => {
-            v.value = "百度搜索";
+        f_succ(() => {
+            let btnK = document.getElementsByName("btnK")
+            if (btnK.length <= 0) {
+                return false;
+            }
+            btnK.forEach(v => {
+                v.value = "百度搜索";
+            });
+            return true;
         });
 
-        let footnote = document.getElementById("SIvCob");
-        if (footnote !== null) {
+
+        f_succ(() => {
+            let footnote = document.getElementById("SIvCob");
+            if (footnote === null) {
+                return false;
+            }
             footnote.innerHTML = '百度提供: ' + footnote.innerHTML.slice(footnote.innerHTML.indexOf('<'));
-        }
+            return true;
+        });
 
     }
 
