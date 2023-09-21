@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name 百度百科美化
-// @namespace userElaina
+// @namespace https://github.com/userElaina/this-is-the-China-website
 // @version 2023.03.09.1
 // @description 中国人就用百度百科
 // @author userElaina

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name 哔哩哔哩美化
-// @namespace userElaina
+// @namespace https://github.com/userElaina/this-is-the-China-website
 // @version 2023.03.29.1
 // @description 中国人就用哔哩哔哩
 // @author userElaina

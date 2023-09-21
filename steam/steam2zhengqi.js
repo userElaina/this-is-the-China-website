@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name 蒸汽平台美化
-// @namespace userElaina
+// @namespace https://github.com/userElaina/this-is-the-China-website
 // @version 2023.03.09.1
 // @description 中国人就用蒸汽平台
 // @author userElaina
