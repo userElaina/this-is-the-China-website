@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 百度搜索美化
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2023.09.22.02
+// @version 2023.10.24.01
 // @description 中国人就用百度搜索
 // @author somereason userElaina
 // @license MIT
@@ -83,13 +83,15 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             if (bannerLogo === null) {
                 return false;
             }
-            bannerLogo.src = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/bd_logo1.png";
+            bannerLogo.src = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png";
             bannerLogo.removeAttribute("srcset");
-            bannerLogo.width = 270;
-            bannerLogo.height = 129;
+            bannerLogo.width = 117 * 2;
+            bannerLogo.height = 38 * 2;
+            /*
             let paddingTop = bannerLogo.style.paddingTop.replace("px", "");
             let paddingTopInt = parseInt(paddingTop);
             bannerLogo.style.paddingTop = (paddingTopInt - 20) + "px";
+            */
             return true;
         });
     }
@@ -191,6 +193,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             });
             return true;
         });
+
 
         f_succ(() => {
             let footnote = document.getElementById("SIvCob");
