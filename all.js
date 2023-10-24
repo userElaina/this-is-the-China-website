@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 超级下载器
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2023.10.17.02
+// @version 2023.10.24.01
 // @description 中国人就用中国网站
 // @author userElaina
 // @license MIT
