@@ -32,7 +32,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
     await f_succ(() => {
         let split_num = window.location.href.split('/');
         if (split_num.length < 4 || (split_num.length == 4 && split_num[3].length == 0)) {
-            document.title = "西瓜视频 - 高清免费在线视频 - 点亮对生化的好奇心";
+            document.title = "西瓜视频 - 高清免费在线视频 - 点亮对生活的好奇心";
             return true;
         }
         if (document.title.endsWith('YouTube')) {
@@ -56,7 +56,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
     f_succ(() => {
         let split_num = window.location.href.split('/');
         if (split_num.length < 4 || (split_num.length == 4 && split_num[3].length == 0)) {
-            document.title = "西瓜视频 - 高清免费在线视频 - 点亮对生化的好奇心";
+            document.title = "西瓜视频 - 高清免费在线视频 - 点亮对生活的好奇心";
         }
         if (document.title.endsWith('YouTube')) {
             document.title = document.title.replace(/\s-\sYouTube*/g, " - 西瓜视频");
