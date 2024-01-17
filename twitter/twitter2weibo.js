@@ -70,7 +70,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
 
     // change logo
     f_succ(() => {
-        let logo = document.querySelector('h1[class="css-4rbku5 css-1dbjc4n r-1awozwy r-1pz39u2 r-1loqt21 r-6koalj r-16y2uox r-1777fci r-4wgw6l"]');
+        let logo = document.querySelector('h1[class="css-175oi2r r-1awozwy r-1pz39u2 r-1loqt21 r-6koalj r-16y2uox r-1777fci r-4wgw6l"]');
         if (logo === null) {
             return false;
         }
