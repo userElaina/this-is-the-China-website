@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 微博美化
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2023.09.22.01
+// @version 2024.01.17.01
 // @description 中国人就用微博
 // @author userElaina
 // @license MIT
