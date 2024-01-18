@@ -216,7 +216,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             return true;
         });
 
-
         f_succ(() => {
             let footnote = document.getElementById("SIvCob");
             if (footnote === null) {
