@@ -97,6 +97,8 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
     }
 
     if (window.location.href.indexOf("/search") > -1) {
+        // search page
+
         // change search logo
         f_succ(() => {
             let logo = document.getElementById("logo");
@@ -154,6 +156,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         */
 
     } else if (window.location.href.indexOf("/imghp") > -1) {
+        // Google Images
 
         BigLogo('Google Images');
         document.title = "百度图片, 发现多彩世界";
@@ -167,12 +170,15 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             return true;
         });
 
+    // } else if (window.location.href.indexOf("/webhp") > -1) {
+        // same as main page, reached by clicking on the logo
     } else {
+        // main page
 
         BigLogo('Google');
         document.title = "百度一下, 你就知道";
 
-        document.querySelectorAll('a.gb_d, a.gb_p, a.gb_q').forEach(v => {
+        document.querySelectorAll('a.gb_d, a.gb_p, a.gb_q, a.gb_F').forEach(v => {
             if (v.dataset.pid === '2') {
                 v.innerText = '百度识图';
                 if (v.href.indexOf("google.cn") > -1) {
@@ -181,6 +187,15 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             } else if (v.dataset.pid === '23') {
                 v.innerHTML = '百度邮箱';
             }
+        });
+
+        document.querySelectorAll('span.gb_Id').forEach(v => {
+            v.innerHTML = '登录';
+        });
+
+        // 关于百度 广告 商务 百度搜索的运作方式 隐私权 条款 设置
+        document.querySelectorAll("a.pHiOh").forEach(v =>{
+            v.innerHTML = v.innerHTML.replace(/\s?Google\s?/, "百度");
         });
 
         f_succ(() => {
