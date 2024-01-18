@@ -177,7 +177,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             return true;
         });
 
-    // } else if (window.location.href.indexOf("/webhp") > -1) {
+        // } else if (window.location.href.indexOf("/webhp") > -1) {
         // same as main page, reached by clicking on the logo
     } else {
         // main page
@@ -201,7 +201,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         });
 
         // 关于百度 广告 商务 百度搜索的运作方式 隐私权 条款 设置
-        document.querySelectorAll("a.pHiOh").forEach(v =>{
+        document.querySelectorAll("a.pHiOh").forEach(v => {
             v.innerHTML = v.innerHTML.replace(/\s?Google\s?/, "百度");
         });
 
