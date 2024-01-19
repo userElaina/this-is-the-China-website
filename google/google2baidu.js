@@ -224,6 +224,12 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             footnote.innerHTML = '百度提供: ' + footnote.innerHTML.slice(footnote.innerHTML.indexOf('<'));
             return true;
         });
+        // Google区域改为京ICP备
+        document.querySelectorAll("div.uU7dJb").forEach(v => {
+            v.innerHTML = v.innerHTML.replace(/.*/, "京ICP证030173号");
+        });
+
+
 
     }
 
