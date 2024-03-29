@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 超级下载器
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2024.01.18.01
+// @version 2024.03.25.02
 // @description 中国人就用中国网站
 // @author userElaina
 // @license MIT
@@ -202,7 +202,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             BigLogo('Google');
             document.title = "百度一下, 你就知道";
 
-            document.querySelectorAll('a.gb_d, a.gb_p, a.gb_q, a.gb_F').forEach(v => {
+            document.querySelectorAll('a.gb_d, a.gb_p, a.gb_q, a.gb_F, a.gb_H').forEach(v => {
                 if (v.dataset.pid === '2') {
                     v.innerText = '百度识图';
                     if (v.href.indexOf("google.cn") > -1) {
@@ -234,6 +234,17 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             });
 
             f_succ(() => {
+                let btnI = document.getElementsByName("btnI")
+                if (btnI.length <= 0) {
+                    return false;
+                }
+                btnI.forEach(v => {
+                    v.value = "今日运势";
+                });
+                return true;
+            });
+
+            f_succ(() => {
                 let footnote = document.getElementById("SIvCob");
                 if (footnote === null) {
                     return false;
@@ -242,6 +253,10 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
                 return true;
             });
 
+            // Google 区域改为京 ICP 备
+            document.querySelectorAll("div.uU7dJb").forEach(v => {
+                v.innerHTML = v.innerHTML.replace(/.*/, "广公网信备11011101111101号  广IPC证01048576号");
+            });
         }
 
     } else if (document.domain.search('youtube') != -1) {
