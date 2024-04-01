@@ -1,5 +1,7 @@
 #### Google 伪装成 百度
 
+包括谷歌搜索, 谷歌图片, 谷歌学术等.
+
 ##### Greasy Fork
 
 https://greasyfork.org/zh-CN/scripts/453226-google-%E4%BC%AA%E8%A3%85%E6%88%90-%E7%99%BE%E5%BA%A6
