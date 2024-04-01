@@ -9,22 +9,22 @@
 // @match *://*.google.com/webhp*
 // @match *://*.google.com/search*
 // @match *://*.google.com/imghp*
-// @match *://*.google.com/scholar*
+// @match *://scholar.google.com/*
 // @match *://*.google.com.hk/
 // @match *://*.google.com.hk/webhp*
 // @match *://*.google.com.hk/search*
 // @match *://*.google.com.hk/imghp*
-// @match *://*.google.com.hk/scholar*
+// @match *://scholar.google.com.hk/*
 // @match *://*.google.com.tw/
 // @match *://*.google.com.tw/webhp*
 // @match *://*.google.com.tw/search*
 // @match *://*.google.com.tw/imghp*
-// @match *://*.google.com.tw/scholar*
+// @match *://scholar.google.com.tw/*
 // @match *://*.google.co.jp/
 // @match *://*.google.co.jp/webhp*
 // @match *://*.google.co.jp/search*
 // @match *://*.google.co.jp/imghp*
-// @match *://*.google.co.jp/scholar*
+// @match *://scholar.google.co.jp/*
 // @grant none
 // ==/UserScript==
 
