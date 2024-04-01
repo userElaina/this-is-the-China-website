@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 超级下载器
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2024.03.25.02
+// @version 2024.04.01.01
 // @description 中国人就用中国网站
 // @author userElaina
 // @license MIT
@@ -15,18 +15,22 @@
 // @match *://*.google.com/webhp*
 // @match *://*.google.com/search*
 // @match *://*.google.com/imghp*
+// @match *://scholar.google.com/*
 // @match *://*.google.com.hk/
 // @match *://*.google.com.hk/webhp*
 // @match *://*.google.com.hk/search*
 // @match *://*.google.com.hk/imghp*
+// @match *://scholar.google.com.hk/*
 // @match *://*.google.com.tw/
 // @match *://*.google.com.tw/webhp*
 // @match *://*.google.com.tw/search*
 // @match *://*.google.com.tw/imghp*
+// @match *://scholar.google.com.tw/*
 // @match *://*.google.co.jp/
 // @match *://*.google.co.jp/webhp*
 // @match *://*.google.co.jp/search*
 // @match *://*.google.co.jp/imghp*
+// @match *://scholar.google.co.jp/*
 // @match *://*.x.com/*
 // @grant none
 // ==/UserScript==
@@ -172,13 +176,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
                 }
             }
 
-            /*
-            // Help Send feedback Privacy Terms
-            document.getElementsByClassName("Fx4vi").forEach(v =>{
-                v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
-            });
-            */
-
         } else if (window.location.href.indexOf("/imghp") > -1) {
             // Google Images
 
@@ -194,6 +191,30 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
                 return true;
             });
 
+        } else if (window.location.href.indexOf("scholar") > -1) {
+
+            if (window.location.href.indexOf("/scholar?") > -1) {
+                document.title = document.title.replace(/\s-[\s\S]*/g, " - 百度学术");
+                f_succ(() => {
+                    let gs_hdr_lgo = document.getElementById("gs_hdr_lgo");
+                    if (gs_hdr_lgo === null) {
+                        return false;
+                    }
+                    gs_hdr_lgo.remove();
+                    return true;
+                });
+            } else {
+                document.title = "百度学术 - 保持学习的态度";
+                f_succ(() => {
+                    let gs_hdr_hp_lgo = document.getElementById("gs_hdr_hp_lgo");
+                    if (gs_hdr_hp_lgo === null) {
+                        return false;
+                    }
+                    gs_hdr_hp_lgo.srcset = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/scholar.png";
+                    return true;
+                });
+            }
+
             // } else if (window.location.href.indexOf("/webhp") > -1) {
             // same as main page, reached by clicking on the logo
         } else {
@@ -206,7 +227,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
                 if (v.dataset.pid === '2') {
                     v.innerText = '百度识图';
                     if (v.href.indexOf("google.cn") > -1) {
-                        v.href = 'https://images.google.com.hk/imghp';
+                        v.href = 'https://images.google.com/imghp';
                     }
                 } else if (v.dataset.pid === '23') {
                     v.innerHTML = '百度邮箱';
@@ -221,6 +242,12 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             document.querySelectorAll("a.pHiOh").forEach(v => {
                 v.innerHTML = v.innerHTML.replace(/\s?Google\s?/, "百度");
             });
+
+            /*
+            document.getElementsByClassName("Fx4vi").forEach(v =>{
+                v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
+            });
+            */
 
             f_succ(() => {
                 let btnK = document.getElementsByName("btnK")
@@ -257,6 +284,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             document.querySelectorAll("div.uU7dJb").forEach(v => {
                 v.innerHTML = v.innerHTML.replace(/.*/, "广公网信备11011101111101号  广IPC证01048576号");
             });
+
         }
 
     } else if (document.domain.search('youtube') != -1) {
