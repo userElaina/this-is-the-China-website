@@ -92,7 +92,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
 
     // change logo on top left (hide)
     f_succ(() => {
-        let logo = document.getElementById('contentContainer').querySelector('ytd-topbar-logo-renderer').querySelector('a').querySelector('icon-shape').querySelector('div');
+        let logo = document.getElementById('contentContainer').querySelector('ytd-topbar-logo-renderer').querySelector('a').querySelector('div').querySelector('div');
         if (logo === null) {
             return false;
         }
