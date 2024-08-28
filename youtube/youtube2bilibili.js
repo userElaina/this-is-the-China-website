@@ -9,8 +9,9 @@
 // @grant none
 // ==/UserScript==
 
-function changeStyle(s0, s1) {
+function changeStyle(s0, s1, s2) {
     let newStyle = document.createElement("style");
+    newStyle.innerHTML = window.trustedTypes.defaultPolicy.createHTML(s2);
     document.head.appendChild(newStyle);
     let newSheet = newStyle.sheet;
     newSheet.addRule(s0, s1);
@@ -100,12 +101,17 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         return true;
     });
 
-
-    sleep(1000).then(() => {
+    // sleep(1000).then(() => {});
+    // change style loop
+    f_succ(() => {
         /*
         use `changeStyle` instead of `query().style=...`
         because some elements are added dynamically
         */
+
+        if (document.head.lastElementChild.innerHTML.toString() == '__bad_code__') {
+            return false;
+        }
 
         function changeBgColor(s0) {
             changeStyle(s0, 'background-color: #00aeec');
@@ -144,6 +150,8 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
 
         // Settings - Annotations
         changeBgColor('.ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox');
-    });
+
+        return false;
+    }, 2000, 2147483647);
 
 })();
