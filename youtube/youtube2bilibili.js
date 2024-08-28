@@ -9,15 +9,6 @@
 // @grant none
 // ==/UserScript==
 
-function changeStyle(s0, s1, s2) {
-    let newStyle = document.createElement("style");
-    newStyle.innerHTML = window.trustedTypes.defaultPolicy.createHTML(s2);
-    document.head.appendChild(newStyle);
-    let newSheet = newStyle.sheet;
-    newSheet.addRule(s0, s1);
-    newSheet.insertRule(s0 + ' { ' + s1 + ' }', 0);
-}
-
 function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
@@ -113,12 +104,24 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         because some elements are added dynamically
         */
 
-        if (document.head.lastElementChild.innerHTML.toString() == '__bad_code__') {
-            return false;
+        let s2 = '__bilibili_style__';
+
+        let la = document.head.lastElementChild;
+        if (la != null) {
+            if (la.innerHTML.toString() == s2) {
+                return false;
+            }
         }
 
+        let s1 = 'background-color: #00aeec';
+
         function changeBgColor(s0) {
-            changeStyle(s0, 'background-color: #00aeec');
+            let newStyle = document.createElement("style");
+            newStyle.innerHTML = window.trustedTypes.defaultPolicy.createHTML(s2);
+            document.head.appendChild(newStyle);
+            let newSheet = newStyle.sheet;
+            newSheet.addRule(s0, s1);
+            newSheet.insertRule(s0 + ' { ' + s1 + ' }', 0);
         }
 
         // button.ytp-button.ytp-settings-button.ytp-hd-quality-badge::after
