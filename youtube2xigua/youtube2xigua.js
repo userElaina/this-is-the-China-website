@@ -16,8 +16,12 @@ function sleep(time) {
 async function f_succ(f, msSleep = 500, maxCount = 10) {
     let count = 0;
     while (true) {
-        if (f()) {
-            return true;
+        try {
+            if (f()) {
+                return true;
+            }
+        } catch (e) {
+            console.log(e);
         }
         count++;
         if (count > maxCount) {
@@ -28,6 +32,12 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
 }
 
 (async function () {
+    if (window.trustedTypes && window.trustedTypes.createPolicy) {
+        window.trustedTypes.createPolicy('default', {
+            createHTML: (string, sink) => string
+        });
+    }
+
     // change title
     await f_succ(() => {
         let split_num = window.location.href.split('/');
@@ -72,19 +82,18 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         if (logo === null) {
             return false;
         }
-        logo.innerHTML = xigua_biglogo;
+        logo.innerHTML = window.trustedTypes.defaultPolicy.createHTML(xigua_biglogo);
         return true;
     });
 
     // change logo on top left (hide)
     f_succ(() => {
-        let logo = document.getElementById('contentContainer').querySelector('ytd-topbar-logo-renderer').querySelector('a').querySelector('icon-shape').querySelector('div');
+        let logo = document.getElementById('contentContainer').querySelector('ytd-topbar-logo-renderer').querySelector('a').querySelector('div').querySelector('div');
         if (logo === null) {
             return false;
         }
         logo.innerHTML = xigua_biglogo;
         return true;
     });
-
 
 })();
