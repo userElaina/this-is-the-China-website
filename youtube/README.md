@@ -15,3 +15,7 @@ https://greasyfork.org/zh-CN/scripts/453225-youtube-%E4%BC%AA%E8%A3%85%E6%88%90-
 ##### notification
 
 ![notification](./show3.png)
+
+##### settings
+
+![settings](./show4.png)
