@@ -17,8 +17,12 @@ function sleep(time) {
 async function f_succ(f, msSleep = 500, maxCount = 10) {
     let count = 0;
     while (true) {
-        if (f()) {
-            return true;
+        try {
+            if (f()) {
+                return true;
+            }
+        } catch (e) {
+            console.log(e);
         }
         count++;
         if (count > maxCount) {
