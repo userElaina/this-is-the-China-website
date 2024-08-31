@@ -59,7 +59,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
 
 (async function () {
     if (window.trustedTypes && window.trustedTypes.createPolicy) {
-        window.trustedTypes.createPolicy('default', {
+        window.trustedTypes.createPolicy('__CN_web__', {
             createHTML: (string, sink) => string
         });
     }
