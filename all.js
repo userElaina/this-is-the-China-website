@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 超级下载器
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2024.08.31.01
+// @version 2024.09.05.01
 // @description 中国人就用中国网站
 // @author userElaina
 // @license MIT
@@ -58,12 +58,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
 }
 
 (async function () {
-    if (window.trustedTypes && window.trustedTypes.createPolicy) {
-        window.trustedTypes.createPolicy('__CN_web__', {
-            createHTML: (string, sink) => string
-        });
-    }
-
     if (document.domain.search('google') != -1) {
 
         // change icon
@@ -290,6 +284,12 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         }
 
     } else if (document.domain.search('youtube') != -1) {
+
+        if (window.trustedTypes && window.trustedTypes.createPolicy) {
+            window.trustedTypes.createPolicy('default', {
+                createHTML: (string, sink) => string
+            });
+        }
 
         // change title
         await f_succ(() => {

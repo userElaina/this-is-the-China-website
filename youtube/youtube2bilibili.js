@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 哔哩哔哩美化
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2024.08.28.02
+// @version 2024.09.05.01
 // @description 中国人就用哔哩哔哩
 // @author userElaina
 // @license MIT
@@ -33,7 +33,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
 
 (async function () {
     if (window.trustedTypes && window.trustedTypes.createPolicy) {
-        window.trustedTypes.createPolicy('__CN_web__', {
+        window.trustedTypes.createPolicy('default', {
             createHTML: (string, sink) => string
         });
     }
