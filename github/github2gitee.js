@@ -39,7 +39,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             document.title = '基于 Git 的代码托管和研发协作平台';
         }
     }
-    document.title = document.title + ' - Gitee';
+    document.title = document.title + ': 欢迎关注和订阅国内流量最高的开放源代码...';
 
     // change icon
     await f_succ(() => {
