@@ -8,6 +8,3 @@ https://greasyfork.org/zh-CN/scripts/461427-%E5%9B%BD%E9%99%85%E7%BD%91%E7%AB%99
 [GitHub](https://github.com/userElaina/this-is-the-China-website)
 
 ![1](https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/show1.png)
-
-![2](https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/wikipedia/show2.png)
-
