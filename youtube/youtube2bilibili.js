@@ -113,8 +113,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             }
         }
 
-        let s1 = 'background-color: #00aeec';
-
+        let s1 = 'background-color: #00aeec !important;';
         function changeBgColor(s0) {
             let newStyle = document.createElement("style");
             newStyle.innerHTML = window.trustedTypes.defaultPolicy.createHTML(s2);
@@ -146,6 +145,9 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         */
         changeBgColor('.ytp-swatch-background-color');
 
+        // Settings - Annotations
+        changeBgColor('.ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox');
+
         /*
         setInterval(() => {
             document.querySelectorAll('[id=progress]').forEach(v => {
@@ -153,10 +155,9 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             });
         }, 1000);
         */
-        changeBgColor('#progress.ytd-thumbnail-overlay-resume-playback-renderer');
-
-        // Settings - Annotations
-        changeBgColor('.ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox');
+        // changeBgColor('#progress.ytd-thumbnail-overlay-resume-playback-renderer');
+        s1 = 'background: #00aeec !important;';
+        changeBgColor('.ytp-play-progress');
 
         return false;
     }, 2000, 2147483647);
