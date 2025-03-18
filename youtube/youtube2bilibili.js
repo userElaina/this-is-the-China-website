@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 哔哩哔哩美化
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2024.09.05.01
+// @version 2025.03.18.01
 // @description 中国人就用哔哩哔哩
 // @author userElaina
 // @license MIT
