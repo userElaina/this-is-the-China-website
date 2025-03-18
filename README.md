@@ -14,6 +14,7 @@
 | GitHub | [码云 (Gitee)](https://greasyfork.org/zh-CN/scripts/453224-github-%E4%BC%AA%E8%A3%85%E6%88%90-gitee-%E7%A0%81%E4%BA%91), |
 | Steam | [蒸汽平台](https://greasyfork.org/zh-CN/scripts/461435-steam-%E4%BC%AA%E8%A3%85%E6%88%90-%E8%92%B8%E6%B1%BD%E5%B9%B3%E5%8F%B0), |
 | Twitter (X) | [微博](https://greasyfork.org/zh-CN/scripts/475826-twitter-x-%E4%BC%AA%E8%A3%85%E6%88%90-%E5%BE%AE%E5%8D%9A), |
+| Reddit | [百度贴吧](https://greasyfork.org/zh-CN/scripts/530189-reddit-%E4%BC%AA%E8%A3%85%E6%88%90-%E7%99%BE%E5%BA%A6%E8%B4%B4%E5%90%A7), |
 
 另有汇总: 
 https://greasyfork.org/zh-CN/scripts/461427-%E5%9B%BD%E9%99%85%E7%BD%91%E7%AB%99%E4%BC%AA%E8%A3%85%E4%B8%BA%E5%9B%BD%E5%86%85%E7%BD%91%E7%AB%99
