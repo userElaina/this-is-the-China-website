@@ -10,6 +10,7 @@
 | GitHub | 码云 (Gitee) |
 | Steam | 蒸汽平台 |
 | Twitter (X) | 微博 |
+| Reddit | 百度贴吧 |
 
 建议自行将 `@name` 修改为"网页美化", "超级下载器"等类似标题.
 
