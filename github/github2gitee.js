@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 码云美化
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2024.08.28.01
+// @version 2025.03.18.01
 // @description 中国人就用码云
 // @author userElaina
 // @license MIT
