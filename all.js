@@ -33,6 +33,7 @@
 // @match *://scholar.google.co.jp/*
 // @match *://*.steamcommunity.com/*
 // @match *://*.x.com/*
+// @icon https://raw.githubusercontent.com/userElaina/this-is-the-China-website/refs/heads/main/jing.png
 // @grant none
 // ==/UserScript==
 
