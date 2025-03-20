@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 百度贴吧美化
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2025.03.18.01
+// @version 2025.03.20.01
 // @description 中国人就用百度贴吧
 // @author userElaina
 // @license MIT
