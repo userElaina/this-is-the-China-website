@@ -82,4 +82,31 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         return true;
     });
 
+    // change placeholder
+    f_succ(() => {
+        let p = document.querySelector('[class="nd:visible w-[inherit] translate-x-0 max-w-[750px] w-full"]');
+        if (p === null) {
+            return false;
+        }
+        p = p.shadowRoot;
+        p = p.childNodes[2];
+        if (p === null) {
+            return false;
+        }
+        p = p.childNodes[1];
+        if (p === null) {
+            return false;
+        }
+        p = p.childNodes[1];
+        if (p === null) {
+            return false;
+        }
+        p = p.childNodes[3];
+        if (p === null) {
+            return false;
+        }
+        p.placeholder = '全吧搜索：搜索贴吧、帖子或用户';
+        return true;
+    });
+
 })();
