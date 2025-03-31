@@ -6,6 +6,7 @@
 // @author userElaina
 // @license MIT
 // @match *://*.youtube.com/*
+// @match *://*.youtu.be/*
 // @grant none
 // ==/UserScript==
 
