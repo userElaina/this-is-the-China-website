@@ -97,7 +97,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         return true;
     });
 
-    // change searchbox
+    // change searchbox loop
     f_succ(() => {
         let searchBox = document.querySelector('input.ytSearchboxComponentInput.yt-searchbox-input.title');
         if (searchBox === null) {
@@ -105,6 +105,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         }
         searchBox.placeholder = '搜索西瓜视频';
         return true;
-    });
+    }, 2000, 2147483647);
 
 })();
