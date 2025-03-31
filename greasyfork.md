@@ -4,7 +4,7 @@
 
 | src | dst |
 | --- | --- |
-| Google | 百度 |
+| Google (搜索/图片/学术) | 百度 |
 | Wikipedia | 百度百科 |
 | YouTube | 哔哩哔哩 |
 | GitHub | 码云 (Gitee) |
