@@ -107,7 +107,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         return true;
     });
 
-    // sleep(1000).then(() => {});
     // change style loop
     f_succ(() => {
         /*
