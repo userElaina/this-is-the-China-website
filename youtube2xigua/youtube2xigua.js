@@ -96,4 +96,14 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         return true;
     });
 
+    // change searchbox
+    f_succ(() => {
+        let searchBox = document.querySelector('input.ytSearchboxComponentInput.yt-searchbox-input.title');
+        if (searchBox === null) {
+            return false;
+        }
+        searchBox.placeholder = '搜索西瓜视频';
+        return true;
+    });
+
 })();
