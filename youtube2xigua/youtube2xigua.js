@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name 西瓜视频美化
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2024.08.28.01
+// @version 2025.03.31.01
 // @description 中国人就用西瓜视频
 // @author userElaina
 // @license MIT
 // @match *://*.youtube.com/*
+// @match *://*.youtu.be/*
 // @grant none
 // ==/UserScript==
 
