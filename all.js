@@ -31,8 +31,9 @@
 // @match *://*.google.co.jp/search*
 // @match *://*.google.co.jp/imghp*
 // @match *://scholar.google.co.jp/*
-// @match *://*.steamcommunity.com/*
 // @match *://*.x.com/*
+// @match *://*.steamcommunity.com/*
+// @match *://*.youtu.be/*
 // @icon https://raw.githubusercontent.com/userElaina/this-is-the-China-website/refs/heads/main/jing.png
 // @grant none
 // ==/UserScript==
@@ -351,7 +352,16 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             return true;
         });
 
-        // sleep(1000).then(() => {});
+        // change searchbox
+        f_succ(() => {
+            let searchBox = document.querySelector('input.ytSearchboxComponentInput.yt-searchbox-input.title');
+            if (searchBox === null) {
+                return false;
+            }
+            searchBox.placeholder = '搜索哔哩哔哩';
+            return true;
+        });
+
         // change style loop
         f_succ(() => {
             /*
