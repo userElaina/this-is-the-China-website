@@ -267,9 +267,8 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             v.innerHTML = "广公网信备11011101111101号  广IPC证01048576号  互联网信息新闻服务许可证〔2025〕33550226号";
         });
 
-
-    // } else if (window.location.href.indexOf("/webhp") > -1) {
-    // same as main page, reached by clicking on the logo
+        // } else if (window.location.href.indexOf("/webhp") > -1) {
+        // same as main page, reached by clicking on the logo
     } else {
         // main page
 
