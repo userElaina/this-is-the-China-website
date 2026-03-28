@@ -59,21 +59,21 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
     document.getElementsByTagName('head')[0].appendChild(link);
 
     // change search style
-    f_succ(() => {
-        let RNNXgb = document.getElementsByClassName('RNNXgb');
-        if (RNNXgb.length <= 0) {
-            RNNXgb = document.getElementsByClassName('o6juZc');
-        }
-        if (RNNXgb.length <= 0) {
-            return false;
-        }
-        let searchStyle = RNNXgb[0].style;
-        searchStyle.boxShadow = "0 0 0 0";
-        searchStyle.border = 0;
-        searchStyle.borderRadius = 0;
-        searchStyle.background = '#4e6ef21f';
-        return true;
-    });
+    // f_succ(() => {
+    //     let RNNXgb = document.getElementsByClassName('RNNXgb');
+    //     if (RNNXgb.length <= 0) {
+    //         RNNXgb = document.getElementsByClassName('o6juZc');
+    //     }
+    //     if (RNNXgb.length <= 0) {
+    //         return false;
+    //     }
+    //     let searchStyle = RNNXgb[0].style;
+    //     searchStyle.boxShadow = "0 0 0 0";
+    //     searchStyle.border = 0;
+    //     searchStyle.borderRadius = 0;
+    //     searchStyle.background = '#4e6ef21f';
+    //     return true;
+    // });
 
     // func: change search button
     async function SearchButton(s0) {
@@ -92,27 +92,38 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
     }
 
     // func: change big logo
-    async function BigLogo(str) {
-        await f_succ(() => {
-            let bannerLogo = document.querySelector("[alt='" + str + "']");
-            if (bannerLogo === null) {
-                return false;
-            }
-            bannerLogo.src = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png";
-            bannerLogo.removeAttribute("srcset");
-            bannerLogo.width = 117 * 2;
-            bannerLogo.height = 38 * 2;
-            /*
-            let paddingTop = bannerLogo.style.paddingTop.replace("px", "");
-            let paddingTopInt = parseInt(paddingTop);
-            bannerLogo.style.paddingTop = (paddingTopInt - 20) + "px";
-            */
-            return true;
-        });
-    }
+    // async function BigLogo(str) {
+    //     await f_succ(() => {
+    //         let bigLogo = document.querySelector("[alt='" + str + "']");
+    //         if (bigLogo === null) {
+    //             return false;
+    //         }
+    //         bigLogo.src = "https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png";
+    //         bigLogo.removeAttribute("srcset");
+    //         bigLogo.width = 117 * 2;
+    //         bigLogo.height = 38 * 2;
+    //         /*
+    //         let paddingTop = bigLogo.style.paddingTop.replace("px", "");
+    //         let paddingTopInt = parseInt(paddingTop);
+    //         bigLogo.style.paddingTop = (paddingTopInt - 20) + "px";
+    //         */
+    //         return true;
+    //     });
+    // }
 
     if (window.location.href.indexOf("/search") > -1) {
         // search page
+
+        // change top left logo
+        // f_succ(() => {
+        //     let bigLogo = document.querySelector("a[id='logo']");
+        //     if (bigLogo === null) {
+        //         return false;
+        //     }
+        //     // bigLogo.removeAttribute("srcset");
+        //     bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_small.png" width="117" height="38">';
+        //     return true;
+        // });
 
         // change search logo
         f_succ(() => {
@@ -135,12 +146,17 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             }
             let img = logo.querySelector("img");
             if (img === null) {
-                if (logo.childElementCount <= 0) {
-                    return false;
+                let svg = logo.querySelector("svg");
+                if (svg === null) {
+                    if (logo.childElementCount <= 0) {
+                        return false;
+                    }
+                    logo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_small.png" style="background:none" width="117" height="38" data-atf="1" data-frt="0"></img>';
+                } else {
+                    logo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_small.png" style="background:none" width="117" height="38" data-atf="1" data-frt="0"></img>';
                 }
-                logo.childNodes[0].innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png" style="background:none" height="30" width="92" data-atf="1" data-frt="0"></img>';
             } else {
-                img.src = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png';
+                img.src = 'https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_small.png';
             }
             return true;
         });
@@ -162,21 +178,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
                 navTabSpans[i].style.background = 'url("' + naviImageUrl + '") no-repeat -96px -288px';
             }
         }
-
-    } else if (window.location.href.indexOf("/imghp") > -1) {
-        // Google Images
-
-        BigLogo('Google Images');
-        document.title = "百度图片, 发现多彩世界";
-        SearchButton('imghp');
-        f_succ(() => {
-            let T8VaVe = document.getElementsByClassName("T8VaVe");
-            if (T8VaVe.length <= 0) {
-                return false;
-            }
-            T8VaVe[0].innerHTML = '';
-            return true;
-        });
 
     } else if (window.location.href.indexOf("scholar") > -1) {
 
@@ -202,32 +203,50 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             });
         }
 
-        // } else if (window.location.href.indexOf("/webhp") > -1) {
-        // same as main page, reached by clicking on the logo
-    } else {
-        // main page
+    } else if (window.location.href.indexOf("/imghp") > -1) {
+        // Google Images
 
-        BigLogo('Google');
-        document.title = "百度一下, 你就知道";
-
-        document.querySelectorAll('a.gb_d, a.gb_p, a.gb_q, a.gb_F, a.gb_H').forEach(v => {
-            if (v.dataset.pid === '2') {
-                v.innerText = '百度识图';
-                if (v.href.indexOf("google.cn") > -1) {
-                    v.href = 'https://images.google.com/imghp';
-                }
-            } else if (v.dataset.pid === '23') {
-                v.innerHTML = '百度邮箱';
+        // change big logo
+        f_succ(() => {
+            let bigLogo = document.querySelector("div[class='k1zIA rSk4se']");
+            if (bigLogo === null) {
+                return false;
             }
+            // bigLogo.removeAttribute("srcset");
+            bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_img.webp" width="508" height="160">';
+            return true;
         });
 
+        // 'images' word under logo
+        f_succ(() => {
+            let T8VaVe = document.getElementsByClassName("T8VaVe");
+            if (T8VaVe.length <= 0) {
+                return false;
+            }
+            T8VaVe[0].innerHTML = '';
+            return true;
+        });
+
+        document.title = "百度图片, 发现多彩世界";
+
+        // document.querySelectorAll('input.gNO89b').forEach(v => {
+        //     v.value = '百度搜索'
+        // });
+        
         document.querySelectorAll('span.gb_Id').forEach(v => {
             v.innerHTML = '登录';
         });
 
         // 关于百度 广告 商务 百度搜索的运作方式 隐私权 条款 设置
-        document.querySelectorAll("a.pHiOh").forEach(v => {
-            v.innerHTML = v.innerHTML.replace(/\s?Google\s?/, "百度");
+        document.querySelectorAll("a.pHiOh, div.ayzqOc.pHiOh").forEach(v => {
+            // v.innerHTML = v.innerHTML.replace(/\s?Google\s?/, "百度");
+            v.innerHTML = v.innerHTML.replace("About", "关于百度");
+            v.innerHTML = v.innerHTML.replace("Advertising", "投放广告");
+            v.innerHTML = v.innerHTML.replace("Business", "商务合作");
+            v.innerHTML = v.innerHTML.replace("How Search works", "搜索运作原理");
+            v.innerHTML = v.innerHTML.replace("Privacy", "隐私");
+            v.innerHTML = v.innerHTML.replace("Terms", "条款");
+            v.innerHTML = v.innerHTML.replace("Settings", "设置");
         });
 
         /*
@@ -267,9 +286,100 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             return true;
         });
 
-        // Google 区域改为京 ICP 备
         document.querySelectorAll("div.uU7dJb").forEach(v => {
-            v.innerHTML = v.innerHTML.replace(/.*/, "广公网信备11011101111101号  广IPC证01048576号");
+            v.innerHTML = "广公网信备11011101111101号  广IPC证01048576号  互联网信息新闻服务许可证〔2025〕33550226号";
+        });
+
+
+    // } else if (window.location.href.indexOf("/webhp") > -1) {
+    // same as main page, reached by clicking on the logo
+    } else {
+        // main page
+
+        // change big logo
+        f_succ(() => {
+            let bigLogo = document.querySelector("div[class='k1zIA rSk4se']");
+            if (bigLogo === null) {
+                return false;
+            }
+            // bigLogo.removeAttribute("srcset");
+            bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png" width="540" height="258">';
+            return true;
+        });
+
+        document.title = "百度一下, 你就知道";
+
+        document.querySelectorAll('a.gb_d, a.gb_p, a.gb_q, a.gb_F, a.gb_H, a.gb_Z').forEach(v => {
+            if (v.dataset.pid === '2') {
+                v.innerText = '百度识图';
+                if (v.href.indexOf("google.cn") > -1) {
+                    v.href = 'https://images.google.com/imghp';
+                }
+            } else if (v.dataset.pid === '23') {
+                v.innerHTML = '百度邮箱';
+            }
+        });
+
+        document.querySelectorAll('span.lTxWLe').forEach(v => {
+            v.innerHTML = 'AI 模式';
+        });
+
+        document.querySelectorAll('span.gb_Id').forEach(v => {
+            v.innerHTML = '登录';
+        });
+
+        // 关于百度 广告 商务 百度搜索的运作方式 隐私权 条款 设置
+        document.querySelectorAll("a.pHiOh, div.ayzqOc.pHiOh").forEach(v => {
+            // v.innerHTML = v.innerHTML.replace(/\s?Google\s?/, "百度");
+            v.innerHTML = v.innerHTML.replace("About", "关于百度");
+            v.innerHTML = v.innerHTML.replace("Advertising", "投放广告");
+            v.innerHTML = v.innerHTML.replace("Business", "商务合作");
+            v.innerHTML = v.innerHTML.replace("How Search works", "搜索运作原理");
+            v.innerHTML = v.innerHTML.replace("Privacy", "隐私");
+            v.innerHTML = v.innerHTML.replace("Terms", "条款");
+            v.innerHTML = v.innerHTML.replace("Settings", "设置");
+        });
+
+        /*
+        document.getElementsByClassName("Fx4vi").forEach(v =>{
+            v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
+        });
+        */
+
+        f_succ(() => {
+            let btnK = document.getElementsByName("btnK")
+            if (btnK.length <= 0) {
+                return false;
+            }
+            btnK.forEach(v => {
+                v.value = "百度搜索";
+            });
+            return true;
+        });
+
+        f_succ(() => {
+            let btnI = document.getElementsByName("btnI")
+            if (btnI.length <= 0) {
+                return false;
+            }
+            btnI.forEach(v => {
+                v.value = "今日运势";
+            });
+            return true;
+        });
+
+        f_succ(() => {
+            let footnote = document.getElementById("SIvCob");
+            if (footnote === null) {
+                return false;
+            }
+            footnote.innerHTML = '百度提供: ' + footnote.innerHTML.slice(footnote.innerHTML.indexOf('<'));
+            return true;
+        });
+
+        // Google 区域京 ICP 备
+        document.querySelectorAll("div.uU7dJb").forEach(v => {
+            v.innerHTML = "广公网信备11011101111101号  广IPC证01048576号  互联网信息新闻服务许可证〔2025〕33550226号";
         });
 
     }
