@@ -377,7 +377,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             return true;
         });
 
-        // Google 区域京 ICP 备
+        // Google 区域改为 ICP 备
         document.querySelectorAll("div.uU7dJb").forEach(v => {
             v.innerHTML = "广公网信备11011101111101号  广IPC证01048576号  互联网信息新闻服务许可证〔2025〕33550226号";
         });
