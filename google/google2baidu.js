@@ -114,17 +114,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
     if (window.location.href.indexOf("/search") > -1) {
         // search page
 
-        // change top left logo
-        // f_succ(() => {
-        //     let bigLogo = document.querySelector("a[id='logo']");
-        //     if (bigLogo === null) {
-        //         return false;
-        //     }
-        //     // bigLogo.removeAttribute("srcset");
-        //     bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_small.png" width="117" height="38">';
-        //     return true;
-        // });
-
         // change search logo
         f_succ(() => {
             let logo = document.getElementById("logo");
@@ -212,7 +201,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             if (bigLogo === null) {
                 return false;
             }
-            // bigLogo.removeAttribute("srcset");
             bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_img.webp" width="508" height="160">';
             return true;
         });
@@ -229,15 +217,10 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
 
         document.title = "百度图片, 发现多彩世界";
 
-        // document.querySelectorAll('input.gNO89b').forEach(v => {
-        //     v.value = '百度搜索'
-        // });
-        
         document.querySelectorAll('span.gb_Id').forEach(v => {
             v.innerHTML = '登录';
         });
 
-        // 关于百度 广告 商务 百度搜索的运作方式 隐私权 条款 设置
         document.querySelectorAll("a.pHiOh, div.ayzqOc.pHiOh").forEach(v => {
             // v.innerHTML = v.innerHTML.replace(/\s?Google\s?/, "百度");
             v.innerHTML = v.innerHTML.replace("About", "关于百度");
@@ -248,12 +231,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             v.innerHTML = v.innerHTML.replace("Terms", "条款");
             v.innerHTML = v.innerHTML.replace("Settings", "设置");
         });
-
-        /*
-        document.getElementsByClassName("Fx4vi").forEach(v =>{
-            v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
-        });
-        */
 
         f_succ(() => {
             let btnK = document.getElementsByName("btnK")
@@ -328,7 +305,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             v.innerHTML = '登录';
         });
 
-        // 关于百度 广告 商务 百度搜索的运作方式 隐私权 条款 设置
         document.querySelectorAll("a.pHiOh, div.ayzqOc.pHiOh").forEach(v => {
             // v.innerHTML = v.innerHTML.replace(/\s?Google\s?/, "百度");
             v.innerHTML = v.innerHTML.replace("About", "关于百度");
@@ -339,12 +315,6 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
             v.innerHTML = v.innerHTML.replace("Terms", "条款");
             v.innerHTML = v.innerHTML.replace("Settings", "设置");
         });
-
-        /*
-        document.getElementsByClassName("Fx4vi").forEach(v =>{
-            v.innerHTML = v.innerHTML.replace(/Google\s?/, "百度");
-        });
-        */
 
         f_succ(() => {
             let btnK = document.getElementsByName("btnK")
