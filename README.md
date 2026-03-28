@@ -42,3 +42,4 @@ https://greasyfork.org/zh-CN/scripts/461427-%E5%9B%BD%E9%99%85%E7%BD%91%E7%AB%99
 | Pinterest | 没想好 |
 | Instagram | 没想好 (小红书?) |
 | Archive of Our Own | 乐乎 (Lofter), |
+| Telegram | 没想好 |
