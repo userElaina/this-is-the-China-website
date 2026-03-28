@@ -34,6 +34,8 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
 
 (async function () {
     // change title
+    document.title = document.title.replace('Welcome to Steam', '欢迎来到蒸汽平台');
+    document.title = document.title.replace('Steam, The Ultimate Online Game Platform', '蒸汽平台——高质量游戏平台')
     document.title = document.title.replace('Steam', '蒸汽平台');
 
     // change logo on top left
