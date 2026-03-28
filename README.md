@@ -6,6 +6,8 @@
 
 以下链接为 [Greasy Fork](https://greasyfork.org) 链接.
 
+请注意: 如果配合 Tampermonkey 使用, 请打开浏览器的 Allow User Scripts 和 Developer Mode. [详见教程](https://www.tampermonkey.net/faq.php#Q209).
+
 | src | dst |
 | --- | --- |
 | Google (搜索/图片/学术) | [百度](https://greasyfork.org/zh-CN/scripts/453226-google-%E4%BC%AA%E8%A3%85%E6%88%90-%E7%99%BE%E5%BA%A6), |
