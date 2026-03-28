@@ -2,6 +2,8 @@
 
 这样你就可以在(半)公共区域使用国际网站, 而不会被萌新在微信 / QQ 上问, "哇! 为什么你可以使用 Google / YouTube / ...? 浇浇我!"
 
+请注意: 如果配合 Tampermonkey 使用, 请打开浏览器的 Allow User Scripts 和 Developer Mode. [详见教程](https://www.tampermonkey.net/faq.php#Q209).
+
 | src | dst |
 | --- | --- |
 | Google (搜索/图片/学术) | 百度 |
