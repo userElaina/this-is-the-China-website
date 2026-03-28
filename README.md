@@ -35,7 +35,6 @@ https://greasyfork.org/zh-CN/scripts/461427-%E5%9B%BD%E9%99%85%E7%BD%91%E7%AB%99
 | --- | --- |
 | Quora | 知乎, |
 | Google | 野鸡搜索引擎, |
-| Reddit | (小红书?) |
 | Stack Overflow | 没想好 (百度知道? 知乎?) |
 | Facebook | 没想好 (QQ 空间?) |
 | Pixiv | 没想好 |
