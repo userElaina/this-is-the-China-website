@@ -176,7 +176,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
                 if (bigLogo === null) {
                     return false;
                 }
-                bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_img.webp" width="508" height="160">';
+                bigLogo.innerHTML = '<style>.rSk4se{max-height:92px;position:relative}.lnXdpd{max-height:100%;max-width:100%;object-fit:contain;object-position:center bottom;width:auto}</style><img class="lnXdpd" alt="Google Images" src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_img.webp" width="254" height="80">';
                 return true;
             });
 
@@ -254,7 +254,7 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
                     return false;
                 }
                 // bigLogo.removeAttribute("srcset");
-                bigLogo.innerHTML = '<img src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png" width="540" height="258">';
+                bigLogo.innerHTML = '<style>.rSk4se{max-height:92px;position:relative}.lnXdpd{max-height:100%;max-width:100%;object-fit:contain;object-position:center bottom;width:auto}</style><img class="lnXdpd"  aria-label="Google" role="img" src="https://raw.githubusercontent.com/userElaina/this-is-the-China-website/main/google/baidu_big.png" width="180" height="86">';
                 return true;
             });
 
