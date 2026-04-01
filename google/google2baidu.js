@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name 百度搜索美化
 // @namespace https://github.com/userElaina/this-is-the-China-website
-// @version 2026.03.28.01
+// @version 2026.04.01.01
 // @description 中国人就用百度搜索
 // @author userElaina somereason
 // @license MIT
