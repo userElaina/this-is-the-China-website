@@ -10,7 +10,7 @@
 
 | src | dst |
 | --- | --- |
-| Google (搜索/图片/学术) | [百度](https://greasyfork.org/zh-CN/scripts/453226-google-%E4%BC%AA%E8%A3%85%E6%88%90-%E7%99%BE%E5%BA%A6), |
+| Google (搜索/图片/学术) | [百度](https://greasyfork.org/zh-CN/scripts/453226-google-%E4%BC%AA%E8%A3%85%E6%88%90-%E7%99%BE%E5%BA%A6), [野鸡搜索引擎](https://greasyfork.org/en/scripts/572065-google-%E4%BC%AA%E8%A3%85%E6%88%90-%E9%87%8E%E9%B8%A1%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E)|
 | Wikipedia | [百度百科](https://greasyfork.org/zh-CN/scripts/453100-wikipedia-%E4%BC%AA%E8%A3%85%E6%88%90-%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91), |
 | YouTube | [哔哩哔哩](https://greasyfork.org/zh-CN/scripts/453225-youtube-%E4%BC%AA%E8%A3%85%E6%88%90-%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9), [西瓜视频](https://greasyfork.org/zh-CN/scripts/483454-youtube-%E4%BC%AA%E8%A3%85%E6%88%90-%E8%A5%BF%E7%93%9C%E8%A7%86%E9%A2%91)|
 | GitHub | [码云 (Gitee)](https://greasyfork.org/zh-CN/scripts/453224-github-%E4%BC%AA%E8%A3%85%E6%88%90-gitee-%E7%A0%81%E4%BA%91), |
