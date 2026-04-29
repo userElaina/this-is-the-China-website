@@ -77,6 +77,8 @@ async function f_succ(f, msSleep = 500, maxCount = 10) {
         t = t.replace(/\(\d\)/g, '').trim();
         if (t === 'X' || t === 'Twitter') {
             document.title = '微博';
+        } else if (t.startsWith('X ')) {
+            document.title = '微博 ' + t.substring(2);
         } else if (t.endsWith(' / X') || t.endsWith(' / Twitter')) {
             document.title = t.substring(0, t.length - 4) + ' - 微博';
         }
